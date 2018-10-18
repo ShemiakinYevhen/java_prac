@@ -2,11 +2,11 @@ package ua.stqa.pft.addressbook.AppManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ua.stqa.pft.addressbook.Models.AddressData;
 
 public class AddressHelper extends HelperBase{
-
-    WebDriver wd;
 
     public AddressHelper(WebDriver wd) {
         super(wd);
@@ -50,7 +50,7 @@ public class AddressHelper extends HelperBase{
         wd.switchTo().alert().accept();
     }
 
-    public void fillNewAddress(AddressData addressData) {
+    public void fillNewAddress(AddressData addressData, boolean creation) {
         type(By.name("firstname"), addressData.getFirstname());
         type(By.name("middlename"), addressData.getMiddlename());
         type(By.name("middlename"), addressData.getMiddlename());
@@ -70,5 +70,10 @@ public class AddressHelper extends HelperBase{
         type(By.name("address2"), addressData.getAddress2());
         type(By.name("phone2"), addressData.getPhone2());
         type(By.name("notes"), addressData.getNotes());
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(addressData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 }

@@ -10,7 +10,7 @@ public class AddressModificationTests extends TestBase {
     public void testAddressModification() {
         app.getNavigationHelper().gotoHomePage();
         app.getNavigationHelper().gotoModificationPage();
-        app.getAddressHelper().fillNewAddress(new AddressData("test1-1", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null));
+        app.getAddressHelper().fillNewAddress(new AddressData("test1-1", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null), false);
         app.getAddressHelper().submitAddressModification();
 
     }

@@ -9,7 +9,7 @@ public class AddressCreationTests extends TestBase {
     @Test
     public void testAddressCreation() {
         app.getNavigationHelper().gotoAddressCreationPage();
-        app.getAddressHelper().fillNewAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null));
+        app.getAddressHelper().fillNewAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
         app.getAddressHelper().submitAddressCreation();
         app.getNavigationHelper().gotoHomePage();
     }

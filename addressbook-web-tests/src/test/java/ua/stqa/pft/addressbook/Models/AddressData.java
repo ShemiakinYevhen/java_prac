@@ -19,8 +19,9 @@ public class AddressData {
     private final String address2;
     private final String phone2;
     private final String notes;
+    private final String group;
 
-    public AddressData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String address2, String phone2, String notes) {
+    public AddressData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String address2, String phone2, String notes, String group) {
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -39,6 +40,7 @@ public class AddressData {
         this.address2 = address2;
         this.phone2 = phone2;
         this.notes = notes;
+        this.group = group;
     }
 
     public String getFirstname() {
@@ -111,5 +113,9 @@ public class AddressData {
 
     public String getNotes() {
         return notes;
+    }
+
+    public String getGroup() {
+        return group;
     }
 }
