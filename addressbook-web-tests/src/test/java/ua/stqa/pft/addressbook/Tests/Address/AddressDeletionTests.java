@@ -1,8 +1,9 @@
 package ua.stqa.pft.addressbook.Tests.Address;
 
 import org.testng.annotations.Test;
+import ua.stqa.pft.addressbook.Tests.TestBase;
 
-public class AddressDeletionTests extends AddressTestBase {
+public class AddressDeletionTests extends TestBase {
 
     @Test
     public void testAddressDeletion() {

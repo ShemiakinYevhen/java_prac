@@ -2,8 +2,9 @@ package ua.stqa.pft.addressbook.Tests.Group;
 
 import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.GroupData;
+import ua.stqa.pft.addressbook.Tests.TestBase;
 
-public class GroupCreationTests extends GroupTestBase {
+public class GroupCreationTests extends TestBase {
 
     @Test
     public void testGroupCreation() {

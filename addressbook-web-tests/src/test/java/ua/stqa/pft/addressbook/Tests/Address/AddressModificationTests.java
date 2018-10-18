@@ -2,8 +2,9 @@ package ua.stqa.pft.addressbook.Tests.Address;
 
 import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.AddressData;
+import ua.stqa.pft.addressbook.Tests.TestBase;
 
-public class AddressModificationTests extends AddressTestBase {
+public class AddressModificationTests extends TestBase {
 
     @Test
     public void testAddressModification() {

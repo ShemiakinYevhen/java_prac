@@ -1,14 +1,14 @@
 package ua.stqa.pft.addressbook.AppManager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 import ua.stqa.pft.addressbook.Models.AddressData;
 
 public class AddressHelper extends HelperBase{
 
-    FirefoxDriver wd;
+    WebDriver wd;
 
-    public AddressHelper(FirefoxDriver wd) {
+    public AddressHelper(WebDriver wd) {
         super(wd);
     }
 
