@@ -8,6 +8,10 @@ import ua.stqa.pft.addressbook.Models.AddressData;
 
 public class AddressHelper extends HelperBase{
 
+    public boolean isThereAAddress () {
+        return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    }
+
     public AddressHelper(WebDriver wd) {
         super(wd);
     }
@@ -75,5 +79,10 @@ public class AddressHelper extends HelperBase{
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+    }
+
+    public void createAddress(AddressData address, boolean check) {
+        fillNewAddress(address, check);
+        submitAddressCreation();
     }
 }
