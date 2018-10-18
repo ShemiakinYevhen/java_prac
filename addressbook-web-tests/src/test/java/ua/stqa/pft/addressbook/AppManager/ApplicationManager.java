@@ -23,7 +23,6 @@ public class ApplicationManager {
     }
 
     public void init() {
-        System.setProperty("webdriver.gecko.driver", "C:\\geckodriver-v0.23.0-win64\\geckodriver.exe");
         if (browser == BrowserType.FIREFOX) {
             wd = new FirefoxDriver();
         } else if (browser == BrowserType.CHROME) {
