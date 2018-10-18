@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class AllAddressesDeletionTests extends AddressTestBase {
 
     @Test
-    public void AddressDeletionTests1() {
+    public void testAllAddressDeletion() {
 
         app.getAddressHelper().selectingAddress();
         app.getAddressHelper().submitAddressDeleting();
