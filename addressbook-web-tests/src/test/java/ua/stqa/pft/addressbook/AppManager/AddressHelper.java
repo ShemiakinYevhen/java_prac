@@ -13,15 +13,41 @@ public class AddressHelper extends HelperBase{
     }
 
     public void submitAddressDeletion() {
-        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+        click(By.xpath("//div[@id='content']/form[2]/input[2]"));
     }
 
-    public void selectAddress() {
-        click(By.id("2"));
+    public void submitAddressesDeletion() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
     public void submitAddressCreation() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
+    }
+
+
+
+    public void submitAddressDeleting() {
+        type(By.name("searchstring"), "\\9");
+    }
+
+    public void selectAddress() {
+        click(By.id("MassCB"));
+    }
+
+    public void submitAddressModification() {
+        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+    }
+
+    public void submitAllDeletion() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    }
+
+    public void confirmAllDeletion() {
+        click(By.name("OK"));
+    }
+
+    public void acceptAlert() {
+        wd.switchTo().alert().accept();
     }
 
     public void fillNewAddress(AddressData addressData) {
@@ -44,19 +70,5 @@ public class AddressHelper extends HelperBase{
         type(By.name("address2"), addressData.getAddress2());
         type(By.name("phone2"), addressData.getPhone2());
         type(By.name("notes"), addressData.getNotes());
-    }
-
-    public void submitAddressDeleting() {
-        type(By.name("searchstring"), "\\9");
-    }
-
-    public void selectingAddress() {
-        if (!wd.findElement(By.id("MassCB")).isSelected()) {
-            click(By.id("MassCB"));
-        }
-    }
-
-    public void submitAddressModification() {
-        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
 }
