@@ -46,10 +46,6 @@ public class AddressHelper extends HelperBase{
         type(By.name("notes"), addressData.getNotes());
     }
 
-    public void returnToHomePage() {
-        click(By.linkText("home"));
-    }
-
     public void submitAddressDeleting() {
         type(By.name("searchstring"), "\\9");
     }
@@ -58,5 +54,9 @@ public class AddressHelper extends HelperBase{
         if (!wd.findElement(By.id("MassCB")).isSelected()) {
             click(By.id("MassCB"));
         }
+    }
+
+    public void submitAddressModification() {
+        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
 }
