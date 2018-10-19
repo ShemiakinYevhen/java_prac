@@ -5,32 +5,28 @@ import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.AddressData;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
+import java.util.List;
+
 public class AddressDeletionTests extends TestBase {
 
     @Test
     public void testAddressDeletion() {
         app.getNavigationHelper().goToHomePage();
-        int before = app.getAddressHelper().getContactCount();
         if (!app.getAddressHelper().isThereAAddress()) {
             app.getAddressHelper().createAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
         }
         app.getNavigationHelper().goToHomePage();
-        int index;
-        if (before == 0) {
-            index = 0;
-        } else {
-            index = before - 1;
-        }
-        app.getAddressHelper().selectAddress(index);
+        List<AddressData> before = app.getAddressHelper().getAddressList();
+        app.getAddressHelper().selectAddress(before.size() - 1);
         app.getAddressHelper().submitAddressDeletion();
         app.getAddressHelper().acceptAlert();
         app.getNavigationHelper().goToHomePage();
-        int after = app.getAddressHelper().getContactCount();
+        List<AddressData> after = app.getAddressHelper().getAddressList();
         //Проверка, которой не было в курсе
-        if (before == 0) {
-            Assert.assertEquals(after, before);
+        if (before.size() == 0) {
+            Assert.assertEquals(after.size(), before.size());
         } else {
-            Assert.assertEquals(after, before - 1);
+            Assert.assertEquals(after.size(), before.size() - 1);
         }
     }
 }

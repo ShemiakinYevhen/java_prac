@@ -18,8 +18,7 @@ public class AddressesDeletionTests extends TestBase {
         }
         app.getNavigationHelper().goToHomePage();
         List<AddressData> before = app.getAddressHelper().getAddressList();
-        int index = before.size() - 1;
-        app.getAddressHelper().selectAddress(index);
+        app.getAddressHelper().selectAddress(before.size() - 1);
         app.getAddressHelper().submitAddressDeletion();
         app.getAddressHelper().acceptAlert();
         app.getNavigationHelper().goToHomePage();
