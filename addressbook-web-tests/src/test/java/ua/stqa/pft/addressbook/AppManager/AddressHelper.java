@@ -90,7 +90,8 @@ public class AddressHelper extends HelperBase{
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : elements) {
             String name = element.getText();
-            AddressData address = new AddressData (name, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4");
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            AddressData address = new AddressData (id, name, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4");
             adresses.add(address);
         }
         return adresses;

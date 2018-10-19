@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.AddressData;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class AddressModificationTests extends TestBase {
@@ -18,26 +19,22 @@ public class AddressModificationTests extends TestBase {
         }
         app.getNavigationHelper().goToHomePage();
         List<AddressData> before = app.getAddressHelper().getAddressList();
-        int index = before.size() - 1;
-        app.getNavigationHelper().gotoModificationPage(index);
-        app.getAddressHelper().fillNewAddress(new AddressData("test1-1", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null), false);
+        app.getNavigationHelper().gotoModificationPage(before.size() - 1);
+        AddressData address = new AddressData(before.get(before.size() - 1).getId(),"test1-1", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        app.getAddressHelper().fillNewAddress(address, false);
         app.getAddressHelper().submitAddressModification();
         app.getNavigationHelper().goToHomePage();
         List<AddressData> after = app.getAddressHelper().getAddressList();
-        //Проверка, которой не было в курсе
         //Проверка результатов модификации контакта с учетом того, что функция модификации удаляет модифицируемый контакт (баг)
-        if (before.size() == 0) {
-            Assert.assertEquals(after.size(), before.size());
-        } else {
-            Assert.assertEquals(after.size(), before.size() - 1);
-        }
+        Assert.assertEquals(after.size(), before.size() - 1);
         //Условие проверки результатов модификации контакта при нормальной работе функции модификации
         /*
-        if (before == 0) {
-            Assert.assertEquals(after, before + 1);
-        } else {
-            Assert.assertEquals(after, before);
-        }
+        Assert.assertEquals(after, before);
         */
+
+        before.remove(before.size() - 1);
+        //Так как кнопка "Update" удаляет контакт, то следующая строка имеет смысл только после исправления этой ошибки
+        //before.add(address);
+        Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
     }
 }

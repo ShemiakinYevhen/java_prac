@@ -1,6 +1,9 @@
 package ua.stqa.pft.addressbook.Models;
 
+import java.util.Objects;
+
 public class AddressData {
+    private int id;
     private final String firstname;
     private final String middlename;
     private final String lastname;
@@ -21,7 +24,31 @@ public class AddressData {
     private final String notes;
     private final String group;
 
+    public AddressData(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String address2, String phone2, String notes, String group) {
+        this.id = id;
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.address = address;
+        this.home = home;
+        this.mobile = mobile;
+        this.work = work;
+        this.fax = fax;
+        this.email = email;
+        this.email2 = email2;
+        this.email3 = email3;
+        this.homepage = homepage;
+        this.address2 = address2;
+        this.phone2 = phone2;
+        this.notes = notes;
+        this.group = group;
+    }
+
     public AddressData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String address2, String phone2, String notes, String group) {
+        this.id = 0;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -117,5 +144,35 @@ public class AddressData {
 
     public String getGroup() {
         return group;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int max) {
+        this.id = max;
+    }
+
+    @Override
+    public String toString() {
+        return "AddressData{" +
+                "id='" + id + '\'' +
+                ", firstname='" + firstname + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AddressData that = (AddressData) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(firstname, that.firstname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname);
     }
 }
