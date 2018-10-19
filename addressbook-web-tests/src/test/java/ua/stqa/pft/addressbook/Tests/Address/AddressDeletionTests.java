@@ -8,14 +8,13 @@ public class AddressDeletionTests extends TestBase {
 
     @Test
     public void testAddressDeletion() {
-        app.getNavigationHelper().gotoHomePage();
+        app.getAddressHelper().returnToHomePage();
         if (!app.getAddressHelper().isThereAAddress()) {
             app.getAddressHelper().createAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
-            app.getNavigationHelper().gotoHomePage();
         }
         app.getNavigationHelper().gotoModificationPage();
         app.getAddressHelper().submitAddressDeletion();
-        app.getNavigationHelper().gotoHomePage();
+        app.getAddressHelper().returnToHomePage();
     }
 }
 

@@ -71,9 +71,17 @@ public class AddressHelper extends HelperBase{
         click(By.linkText("add new"));
     }
 
+    public void returnToHomePage() {
+        if (isElementPresent(By.id("maintable"))) {
+            return;
+        }
+        click(By.linkText("home"));
+    }
+
     public void createAddress(AddressData address, boolean check) {
         initAddressCreation();
         fillNewAddress(address, check);
         submitAddressCreation();
+        returnToHomePage();
     }
 }

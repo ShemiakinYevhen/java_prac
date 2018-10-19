@@ -19,11 +19,4 @@ public class NavigationHelper extends HelperBase{
     public void gotoModificationPage() {
         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
     }
-
-    public void gotoHomePage() {
-        if (isElementPresent(By.id("maintable"))) {
-            return;
-        }
-        click(By.linkText("home"));
-    }
 }
