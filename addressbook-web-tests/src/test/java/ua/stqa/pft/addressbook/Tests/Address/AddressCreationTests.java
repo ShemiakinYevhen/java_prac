@@ -8,7 +8,6 @@ public class AddressCreationTests extends TestBase {
 
     @Test
     public void testAddressCreation() {
-        app.getNavigationHelper().gotoAddressCreationPage();
         app.getAddressHelper().createAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
         app.getNavigationHelper().gotoHomePage();
     }

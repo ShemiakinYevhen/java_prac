@@ -14,7 +14,7 @@ public class AddressesDeletionTests extends TestBase {
             app.getAddressHelper().createAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
             app.getNavigationHelper().gotoHomePage();
         }
-        app.getAddressHelper().selectAddress();
+        app.getAddressHelper().selectAddresses();
         app.getAddressHelper().submitAddressesDeletion();
         app.getAddressHelper().acceptAlert();
         app.getNavigationHelper().gotoHomePage();

@@ -16,10 +16,6 @@ public class AddressHelper extends HelperBase{
         super(wd);
     }
 
-    public void submitAddressDeletion() {
-        click(By.xpath("//div[@id='content']/form[2]/input[2]"));
-    }
-
     public void submitAddressesDeletion() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
@@ -28,13 +24,7 @@ public class AddressHelper extends HelperBase{
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-
-
-    public void submitAddressDeleting() {
-        type(By.name("searchstring"), "\\9");
-    }
-
-    public void selectAddress() {
+    public void selectAddresses() {
         click(By.id("MassCB"));
     }
 
@@ -42,12 +32,8 @@ public class AddressHelper extends HelperBase{
         click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
 
-    public void submitAllDeletion() {
-        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
-    }
-
-    public void confirmAllDeletion() {
-        click(By.name("OK"));
+    public void submitAddressDeletion() {
+        click(By.xpath("//div[@id='content']/form[2]/input[2]"));
     }
 
     public void acceptAlert() {
@@ -81,7 +67,12 @@ public class AddressHelper extends HelperBase{
         }
     }
 
+    public void initAddressCreation() {
+        click(By.linkText("add new"));
+    }
+
     public void createAddress(AddressData address, boolean check) {
+        initAddressCreation();
         fillNewAddress(address, check);
         submitAddressCreation();
     }
