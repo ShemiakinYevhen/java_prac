@@ -2,9 +2,13 @@ package ua.stqa.pft.addressbook.AppManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ua.stqa.pft.addressbook.Models.AddressData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddressHelper extends HelperBase{
 
@@ -79,5 +83,16 @@ public class AddressHelper extends HelperBase{
 
     public void selectAddress(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
+    }
+
+    public List<AddressData> getAddressList() {
+        List<AddressData> adresses = new ArrayList<AddressData>();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            AddressData address = new AddressData (name, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4");
+            adresses.add(address);
+        }
+        return adresses;
     }
 }
