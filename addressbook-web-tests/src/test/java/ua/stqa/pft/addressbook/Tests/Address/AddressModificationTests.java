@@ -14,7 +14,14 @@ public class AddressModificationTests extends TestBase {
         if (!app.getAddressHelper().isThereAAddress()) {
             app.getAddressHelper().createAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
         }
-        app.getNavigationHelper().gotoModificationPage();
+        app.getNavigationHelper().goToHomePage();
+        int index;
+        if (before == 0) {
+            index = 0;
+        } else {
+            index = before - 1;
+        }
+        app.getNavigationHelper().gotoModificationPage(index);
         app.getAddressHelper().fillNewAddress(new AddressData("test1-1", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null), false);
         app.getAddressHelper().submitAddressModification();
         app.getNavigationHelper().goToHomePage();

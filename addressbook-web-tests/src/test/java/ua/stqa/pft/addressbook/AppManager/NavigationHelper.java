@@ -23,7 +23,7 @@ public class NavigationHelper extends HelperBase{
         click(By.linkText("home"));
     }
 
-    public void gotoModificationPage() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    public void gotoModificationPage(int index) {
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
     }
 }
