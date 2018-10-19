@@ -19,6 +19,7 @@ public class AddressModificationTests extends TestBase {
         app.getAddressHelper().submitAddressModification();
         app.getNavigationHelper().goToHomePage();
         int after = app.getAddressHelper().getContactCount();
+        //Проверка, которой не было в курсе
         //Проверка результатов модификации контакта с учетом того, что функция модификации удаляет модифицируемый контакт (баг)
         if (before == 0) {
             Assert.assertEquals(after, before);
