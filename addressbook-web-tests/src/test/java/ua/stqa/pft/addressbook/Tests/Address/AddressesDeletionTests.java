@@ -14,8 +14,9 @@ public class AddressesDeletionTests extends TestBase {
         if (!app.getAddressHelper().isThereAAddress()) {
             app.getAddressHelper().createAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
         }
+        app.getNavigationHelper().goToHomePage();
         app.getAddressHelper().selectAddresses();
-        app.getAddressHelper().submitAddressesDeletion();
+        app.getAddressHelper().submitAddressDeletion();
         app.getAddressHelper().acceptAlert();
         app.getNavigationHelper().goToHomePage();
         int after = app.getAddressHelper().getContactCount();

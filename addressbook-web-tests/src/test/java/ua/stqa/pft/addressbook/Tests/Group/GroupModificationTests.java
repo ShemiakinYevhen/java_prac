@@ -20,6 +20,7 @@ public class GroupModificationTests extends TestBase {
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupPage();
         int after = app.getGroupHelper().getGroupCount();
+        //Проверка, которой не было в курсе
         if (before == 0) {
             Assert.assertEquals(after, before + 1);
         } else {

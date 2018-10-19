@@ -18,6 +18,7 @@ public class GroupDeletionTests extends TestBase {
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
         int after = app.getGroupHelper().getGroupCount();
+        //Проверка, которой не было в курсе
         if (before == 0) {
             Assert.assertEquals(after, before);
         } else {

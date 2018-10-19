@@ -16,7 +16,7 @@ public class AddressHelper extends HelperBase{
         super(wd);
     }
 
-    public void submitAddressesDeletion() {
+    public void submitAddressDeletion() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
@@ -30,10 +30,6 @@ public class AddressHelper extends HelperBase{
 
     public void submitAddressModification() {
         click(By.xpath("//div[@id='content']/form[1]/input[22]"));
-    }
-
-    public void submitAddressDeletion() {
-        click(By.xpath("//div[@id='content']/form[2]/input[2]"));
     }
 
     public void acceptAlert() {
@@ -79,5 +75,9 @@ public class AddressHelper extends HelperBase{
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public void selectAddress() {
+        click(By.name("selected[]"));
     }
 }
