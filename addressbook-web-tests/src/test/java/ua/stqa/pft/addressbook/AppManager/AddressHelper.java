@@ -28,10 +28,6 @@ public class AddressHelper extends HelperBase{
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void selectAddresses() {
-        click(By.id("MassCB"));
-    }
-
     public void submitAddressModification() {
         click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
@@ -77,23 +73,19 @@ public class AddressHelper extends HelperBase{
         submitAddressCreation();
     }
 
-    public int getContactCount() {
-        return wd.findElements(By.name("selected[]")).size();
-    }
-
     public void selectAddress(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public List<AddressData> getAddressList() {
-        List<AddressData> adresses = new ArrayList<AddressData>();
+        List<AddressData> addresses = new ArrayList<AddressData>();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             AddressData address = new AddressData (id, name, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4");
-            adresses.add(address);
+            addresses.add(address);
         }
-        return adresses;
+        return addresses;
     }
 }
