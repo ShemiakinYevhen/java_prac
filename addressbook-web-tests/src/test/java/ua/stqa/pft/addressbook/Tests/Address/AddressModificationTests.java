@@ -3,8 +3,10 @@ package ua.stqa.pft.addressbook.Tests.Address;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.AddressData;
+import ua.stqa.pft.addressbook.Models.GroupData;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -33,8 +35,13 @@ public class AddressModificationTests extends TestBase {
         */
 
         before.remove(before.size() - 1);
-        //Так как кнопка "Update" удаляет контакт, то следующая строка имеет смысл только после исправления этой ошибки
-        //before.add(address);
-        Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
+        //Так как кнопка "Update" удаляет контакт, то следующая строка, реализующая добавление элемента в спискок необходима только при отсутствии данной ошибки
+        /*
+            before.add(address);
+         */
+        Comparator<? super AddressData> byId = (a1, a2) -> Integer.compare(a1.getId(), a2.getId());
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(before, after);
     }
 }
