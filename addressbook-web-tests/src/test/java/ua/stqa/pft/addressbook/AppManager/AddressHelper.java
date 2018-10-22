@@ -88,4 +88,29 @@ public class AddressHelper extends HelperBase{
         }
         return addresses;
     }
+
+    public void returnToHomePage() {
+        if (isElementPresent(By.id("maintable"))) {
+            return;
+        }
+        click(By.linkText("home"));
+    }
+
+    public void gotoModificationPage(int index) {
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+    }
+
+    public void modifyAddress(int index, AddressData address) {
+        gotoModificationPage(index);
+        fillNewAddress(address, false);
+        submitAddressModification();
+        returnToHomePage();
+    }
+
+    public void deleteAddress(List<AddressData> before) {
+        selectAddress(before.size() - 1);
+        submitAddressDeletion();
+        acceptAlert();
+        returnToHomePage();
+    }
 }

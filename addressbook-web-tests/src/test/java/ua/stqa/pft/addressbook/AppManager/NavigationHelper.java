@@ -22,8 +22,4 @@ public class NavigationHelper extends HelperBase{
         }
         click(By.linkText("home"));
     }
-
-    public void gotoModificationPage(int index) {
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
-    }
 }
