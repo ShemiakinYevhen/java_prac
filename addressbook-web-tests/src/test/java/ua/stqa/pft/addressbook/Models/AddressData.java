@@ -23,6 +23,11 @@ public class AddressData {
     private  String phone2;
     private  String notes;
     private  String group;
+    private  String allPhones;
+
+    public String getAllPhones() {
+        return allPhones;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -52,15 +57,15 @@ public class AddressData {
         return address;
     }
 
-    public String getHome() {
+    public String getHomePhone() {
         return home;
     }
 
-    public String getMobile() {
+    public String getMobilePhone() {
         return mobile;
     }
 
-    public String getWork() {
+    public String getWorkPhone() {
         return work;
     }
 
@@ -102,6 +107,11 @@ public class AddressData {
 
     public int getId() {
         return id;
+    }
+
+    public AddressData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
     }
 
     public AddressData withId(int max) {

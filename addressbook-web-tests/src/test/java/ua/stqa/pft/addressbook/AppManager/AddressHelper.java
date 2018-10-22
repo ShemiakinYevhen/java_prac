@@ -8,9 +8,7 @@ import org.testng.Assert;
 import ua.stqa.pft.addressbook.Models.AddressData;
 import ua.stqa.pft.addressbook.Models.Addresses;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class AddressHelper extends HelperBase{
 
@@ -55,9 +53,9 @@ public class AddressHelper extends HelperBase{
         type(By.name("title"), addressData.getTitle());
         type(By.name("company"), addressData.getCompany());
         type(By.name("address"), addressData.getAddress());
-        type(By.name("home"), addressData.getHome());
-        type(By.name("mobile"), addressData.getMobile());
-        type(By.name("work"), addressData.getWork());
+        type(By.name("home"), addressData.getHomePhone());
+        type(By.name("mobile"), addressData.getMobilePhone());
+        type(By.name("work"), addressData.getWorkPhone());
         type(By.name("fax"), addressData.getFax());
         type(By.name("email"), addressData.getEmail());
         type(By.name("email2"), addressData.getEmail2());
@@ -117,10 +115,23 @@ public class AddressHelper extends HelperBase{
         addressCache = new Addresses();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : elements) {
-            String name = element.getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            addressCache.add(new AddressData ().withId(id).withFirstname(name).withGroup("test4"));
+            List <WebElement> cells = element.findElements(By.tagName("td"));
+            String firstname = cells.get(2).getText();
+            String allPhones = cells.get(5).getText();
+            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+            addressCache.add(new AddressData ().withId(id).withFirstname(firstname).withGroup("test4")
+                    .withAllPhones(allPhones));
         }
         return new Addresses(addressCache);
+    }
+
+    public AddressData infoFromEditForm(AddressData address) {
+        gotoModificationPage(address.getId());
+        String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+        String home = wd.findElement(By.name("home")).getAttribute("value");
+        String work = wd.findElement(By.name("work")).getAttribute("value");
+        String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+        wd.navigate().back();
+        return new AddressData().withFirstname(firstname).withHome(home).withWork(work).withMobile(mobile);
     }
 }
