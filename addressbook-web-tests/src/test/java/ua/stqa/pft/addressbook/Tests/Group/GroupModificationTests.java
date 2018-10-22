@@ -1,12 +1,14 @@
 package ua.stqa.pft.addressbook.Tests.Group;
 
+import org.hamcrest.CoreMatchers;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.GroupData;
+import ua.stqa.pft.addressbook.Models.Groups;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
-import java.util.Set;
+import static org.hamcrest.MatcherAssert.*;
 
 public class GroupModificationTests extends TestBase {
 
@@ -20,15 +22,12 @@ public class GroupModificationTests extends TestBase {
 
     @Test
     public void testGroupModification() {
-        Set<GroupData> before = app.group().set();
+        Groups before = app.group().set();
         GroupData modifiedGroup = before.iterator().next();
         GroupData group = new GroupData().withId(modifiedGroup.getId()).withName("test4-4").withHeader("test5");
         app.group().modify(group);
-        Set<GroupData> after = app.group().set();
+        Groups after = app.group().set();
         Assert.assertEquals(after.size(), before.size());
-
-        before.remove(modifiedGroup);
-        before.add(group);
-        Assert.assertEquals(before, after);
+        assertThat(after, CoreMatchers.equalTo(before.withChanged(modifiedGroup, group)));
     }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ua.stqa.pft.addressbook.Models.AddressData;
+import ua.stqa.pft.addressbook.Models.Addresses;
 
 import java.util.HashSet;
 import java.util.List;
@@ -73,8 +74,8 @@ public class AddressHelper extends HelperBase{
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void gotoModificationPage(int index) {
-        wd.findElement(By.cssSelector("a[href*='edit.php?id=" + index + "']")).click();
+    public void gotoModificationPage(int id) {
+        wd.findElement(By.cssSelector("a[href*='edit.php?id=" + id + "']")).click();
     }
 
     public void submitAddressModification() {
@@ -100,8 +101,8 @@ public class AddressHelper extends HelperBase{
         click(By.linkText("home"));
     }
 
-    public Set<AddressData> set() {
-        Set<AddressData> addresses = new HashSet<AddressData>();
+    public Addresses set() {
+        Addresses addresses = new Addresses();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : elements) {
             String name = element.getText();
