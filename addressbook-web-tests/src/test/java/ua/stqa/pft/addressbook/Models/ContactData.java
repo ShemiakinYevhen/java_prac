@@ -2,7 +2,7 @@ package ua.stqa.pft.addressbook.Models;
 
 import java.util.Objects;
 
-public class AddressData {
+public class ContactData {
     private int id;
     private  String firstname;
     private  String middlename;
@@ -24,6 +24,11 @@ public class AddressData {
     private  String notes;
     private  String group;
     private  String allPhones;
+    private  String allEmails;
+
+    public String getAllEmails() {
+        return allEmails;
+    }
 
     public String getAllPhones() {
         return allPhones;
@@ -109,114 +114,119 @@ public class AddressData {
         return id;
     }
 
-    public AddressData withAllPhones(String allPhones) {
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return this;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
         this.allPhones = allPhones;
         return this;
     }
 
-    public AddressData withId(int max) {
+    public ContactData withId(int max) {
         this.id = max;
         return this;
     }
 
-    public AddressData withFirstname(String firstname) {
+    public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
         return this;
     }
 
-    public AddressData withMiddlename(String middlename) {
+    public ContactData withMiddlename(String middlename) {
         this.middlename = middlename;
         return this;
     }
 
-    public AddressData withLastname(String lastname) {
+    public ContactData withLastname(String lastname) {
         this.lastname = lastname;
         return this;
     }
 
-    public AddressData withNickname(String nickname) {
+    public ContactData withNickname(String nickname) {
         this.nickname = nickname;
         return this;
     }
 
-    public AddressData withTitle(String title) {
+    public ContactData withTitle(String title) {
         this.title = title;
         return this;
     }
 
-    public AddressData withCompany(String company) {
+    public ContactData withCompany(String company) {
         this.company = company;
         return this;
     }
 
-    public AddressData withAddress(String address) {
+    public ContactData withAddress(String address) {
         this.address = address;
         return this;
     }
 
-    public AddressData withHome(String home) {
+    public ContactData withHome(String home) {
         this.home = home;
         return this;
     }
 
-    public AddressData withMobile(String mobile) {
+    public ContactData withMobile(String mobile) {
         this.mobile = mobile;
         return this;
     }
 
-    public AddressData withWork(String work) {
+    public ContactData withWork(String work) {
         this.work = work;
         return this;
     }
 
-    public AddressData withFax(String fax) {
+    public ContactData withFax(String fax) {
         this.fax = fax;
         return this;
     }
 
-    public AddressData withEmail(String email) {
+    public ContactData withEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public AddressData withEmail2(String email2) {
+    public ContactData withEmail2(String email2) {
         this.email2 = email2;
         return this;
     }
 
-    public AddressData withEmail3(String email3) {
+    public ContactData withEmail3(String email3) {
         this.email3 = email3;
         return this;
     }
 
-    public AddressData withHomepage(String homepage) {
+    public ContactData withHomepage(String homepage) {
         this.homepage = homepage;
         return this;
     }
 
-    public AddressData withAddress2(String address2) {
+    public ContactData withAddress2(String address2) {
         this.address2 = address2;
         return this;
     }
 
-    public AddressData withPhone2(String phone2) {
+    public ContactData withPhone2(String phone2) {
         this.phone2 = phone2;
         return this;
     }
 
-    public AddressData withNotes(String notes) {
+    public ContactData withNotes(String notes) {
         this.notes = notes;
         return this;
     }
 
-    public AddressData withGroup(String group) {
+    public ContactData withGroup(String group) {
         this.group = group;
         return this;
     }
 
     @Override
     public String toString() {
-        return "AddressData{" +
+        return "ContactData{" +
                 "id='" + id + '\'' +
                 ", firstname='" + firstname + '\'' +
                 '}';
@@ -226,7 +236,7 @@ public class AddressData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AddressData that = (AddressData) o;
+        ContactData that = (ContactData) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(firstname, that.firstname);
     }
