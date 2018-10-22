@@ -30,13 +30,13 @@ public class AddressModificationTests extends TestBase {
         AddressData modifiedAddress = before.iterator().next();
         AddressData address = new AddressData().withId(modifiedAddress.getId()).withFirstname("test1-1");
         app.address().modify(address);
+        //При нормальной работе функции модифицирования было бы:
+        //Assert.assertEquals(app.address().count(), before.size());
+        Assert.assertEquals(app.address().count(), before.size() - 1);
         Addresses after = app.address().set();
         //Проверка результатов модификации контакта с учетом того, что функция модификации удаляет модифицируемый контакт (баг)
-        Assert.assertEquals(after.size(), before.size() - 1);
         assertThat(after, CoreMatchers.equalTo(before.withChanged(modifiedAddress, address)));
         //Условие проверки результатов модификации контакта при нормальной работе функции модификации
         //Assert.assertEquals(after, before);
     }
-
-
 }

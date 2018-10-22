@@ -25,8 +25,8 @@ public class AddressDeletionTests extends TestBase {
         Addresses before = app.address().set();
         AddressData deletedAddress = before.iterator().next();
         app.address().delete(deletedAddress);
+        Assert.assertEquals(app.address().count(), before.size() - 1);
         Addresses after = app.address().set();
-        Assert.assertEquals(after.size(), before.size() - 1);
         assertThat(after, CoreMatchers.equalTo(before.without(deletedAddress)));
     }
 

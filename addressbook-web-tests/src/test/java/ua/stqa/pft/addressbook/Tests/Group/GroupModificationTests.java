@@ -8,6 +8,7 @@ import ua.stqa.pft.addressbook.Models.GroupData;
 import ua.stqa.pft.addressbook.Models.Groups;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.*;
 
 public class GroupModificationTests extends TestBase {
@@ -26,8 +27,8 @@ public class GroupModificationTests extends TestBase {
         GroupData modifiedGroup = before.iterator().next();
         GroupData group = new GroupData().withId(modifiedGroup.getId()).withName("test4-4").withHeader("test5");
         app.group().modify(group);
+        assertThat(app.group().count(), equalTo(before.size()));
         Groups after = app.group().set();
-        Assert.assertEquals(after.size(), before.size());
         assertThat(after, CoreMatchers.equalTo(before.withChanged(modifiedGroup, group)));
     }
 }

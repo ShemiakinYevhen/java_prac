@@ -104,6 +104,10 @@ public class AddressHelper extends HelperBase{
         click(By.linkText("home"));
     }
 
+    public int count() {
+        return wd.findElements(By.xpath("//tr[@name='entry']")).size();
+    }
+
     Addresses addressCache = null;
 
     public Addresses set() {

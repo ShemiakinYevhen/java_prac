@@ -18,8 +18,19 @@ public class AddressCreationTests extends TestBase {
         Addresses before = app.address().set();
         AddressData address = new AddressData().withFirstname("test1").withMiddlename("test2").withGroup("test4-4");
         app.address().create(address, true);
+        Assert.assertEquals(app.address().count(), before.size() + 1);
         Addresses after = app.address().set();
-        Assert.assertEquals(after.size(), before.size() + 1);
         assertThat(after, equalTo(before.withAdded(address.withId(after.stream().mapToInt((a) -> a.getId()).max().getAsInt()))));
+    }
+
+    @Test
+    public void testBadAddressCreation() {
+        app.goTo().home();
+        Addresses before = app.address().set();
+        AddressData address = new AddressData().withFirstname("test1'").withMiddlename("test2").withGroup("test4-4");
+        app.address().create(address, true);
+        Assert.assertEquals(app.address().count(), before.size());
+        Addresses after = app.address().set();
+        assertThat(after, equalTo(before));
     }
 }
