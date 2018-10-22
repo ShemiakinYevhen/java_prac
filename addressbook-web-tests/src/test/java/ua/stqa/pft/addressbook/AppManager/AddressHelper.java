@@ -12,28 +12,33 @@ import java.util.List;
 
 public class AddressHelper extends HelperBase{
 
-    public boolean isThereAAddress () {
-        return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
-    }
-
     public AddressHelper(WebDriver wd) {
         super(wd);
     }
 
-    public void submitAddressDeletion() {
-        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    public void create(AddressData address, boolean check) {
+        initAddressCreation();
+        fillNewAddress(address, check);
+        submitAddressCreation();
+        returnToHomePage();
     }
 
-    public void submitAddressCreation() {
-        click(By.xpath("//div[@id='content']/form/input[21]"));
+    public void modify(int index, AddressData address) {
+        gotoModificationPage(index);
+        fillNewAddress(address, false);
+        submitAddressModification();
+        returnToHomePage();
     }
 
-    public void submitAddressModification() {
-        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+    public void delete(List<AddressData> before) {
+        selectAddress(before.size() - 1);
+        submitAddressDeletion();
+        acceptAlert();
+        returnToHomePage();
     }
 
-    public void acceptAlert() {
-        wd.switchTo().alert().accept();
+    public void initAddressCreation() {
+        click(By.linkText("add new"));
     }
 
     public void fillNewAddress(AddressData addressData, boolean creation) {
@@ -63,30 +68,28 @@ public class AddressHelper extends HelperBase{
         }
     }
 
-    public void initAddressCreation() {
-        click(By.linkText("add new"));
+    public void submitAddressCreation() {
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void createAddress(AddressData address, boolean check) {
-        initAddressCreation();
-        fillNewAddress(address, check);
-        submitAddressCreation();
+    public void gotoModificationPage(int index) {
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+    }
+
+    public void submitAddressModification() {
+        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
 
     public void selectAddress(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    public List<AddressData> getAddressList() {
-        List<AddressData> addresses = new ArrayList<AddressData>();
-        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
-        for (WebElement element : elements) {
-            String name = element.getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            AddressData address = new AddressData (id, name, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4");
-            addresses.add(address);
-        }
-        return addresses;
+    public void submitAddressDeletion() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    }
+
+    public void acceptAlert() {
+        wd.switchTo().alert().accept();
     }
 
     public void returnToHomePage() {
@@ -96,21 +99,15 @@ public class AddressHelper extends HelperBase{
         click(By.linkText("home"));
     }
 
-    public void gotoModificationPage(int index) {
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
-    }
-
-    public void modifyAddress(int index, AddressData address) {
-        gotoModificationPage(index);
-        fillNewAddress(address, false);
-        submitAddressModification();
-        returnToHomePage();
-    }
-
-    public void deleteAddress(List<AddressData> before) {
-        selectAddress(before.size() - 1);
-        submitAddressDeletion();
-        acceptAlert();
-        returnToHomePage();
+    public List<AddressData> list() {
+        List<AddressData> addresses = new ArrayList<AddressData>();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            AddressData address = new AddressData (id, name, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4");
+            addresses.add(address);
+        }
+        return addresses;
     }
 }

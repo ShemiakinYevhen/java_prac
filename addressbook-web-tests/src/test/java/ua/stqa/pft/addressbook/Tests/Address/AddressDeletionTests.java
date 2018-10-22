@@ -11,18 +11,19 @@ import java.util.List;
 public class AddressDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions () {
-        app.getNavigationHelper().goToHomePage();
-        if (!app.getAddressHelper().isThereAAddress()) {
-            app.getAddressHelper().createAddress(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
+        app.goTo().home();
+        if (app.address().list().size() == 0) {
+            app.address().create(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
         }
-        app.getNavigationHelper().goToHomePage();
+        app.goTo().home();
     }
 
     @Test
     public void testAddressDeletion() {
-        List<AddressData> before = app.getAddressHelper().getAddressList();
-        app.getAddressHelper().deleteAddress(before);
-        List<AddressData> after = app.getAddressHelper().getAddressList();
+        List<AddressData> before = app.address().list();
+        app.address().delete(before);
+        List<AddressData> after = app.address().list();
+
         Assert.assertEquals(after.size(), before.size() - 1);
         before.remove(before.size() - 1);
         Assert.assertEquals(before, after);
