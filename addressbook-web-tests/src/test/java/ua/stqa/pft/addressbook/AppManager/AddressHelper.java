@@ -22,6 +22,7 @@ public class AddressHelper extends HelperBase{
         initAddressCreation();
         fillNewAddress(address, check);
         submitAddressCreation();
+        addressCache = null;
         returnToHomePage();
     }
 
@@ -29,6 +30,7 @@ public class AddressHelper extends HelperBase{
         gotoModificationPage(address.getId());
         fillNewAddress(address, false);
         submitAddressModification();
+        addressCache = null;
         returnToHomePage();
     }
 
@@ -36,6 +38,7 @@ public class AddressHelper extends HelperBase{
         selectAddress(address.getId());
         submitAddressDeletion();
         acceptAlert();
+        addressCache = null;
         returnToHomePage();
     }
 
@@ -101,14 +104,19 @@ public class AddressHelper extends HelperBase{
         click(By.linkText("home"));
     }
 
+    Addresses addressCache = null;
+
     public Addresses set() {
-        Addresses addresses = new Addresses();
+        if (addressCache != null) {
+            return new Addresses(addressCache);
+        }
+        addressCache = new Addresses();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            addresses.add(new AddressData ().withId(id).withFirstname(name).withGroup("test4"));
+            addressCache.add(new AddressData ().withId(id).withFirstname(name).withGroup("test4"));
         }
-        return addresses;
+        return new Addresses(addressCache);
     }
 }
