@@ -6,13 +6,13 @@ import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.AddressData;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
-import java.util.List;
+import java.util.Set;
 
 public class AddressDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions () {
         app.goTo().home();
-        if (app.address().list().size() == 0) {
+        if (app.address().set().size() == 0) {
             app.address().create(new AddressData().withFirstname("test1").withMiddlename("test2").withGroup("test4-4"), true);
         }
         app.goTo().home();
@@ -20,12 +20,13 @@ public class AddressDeletionTests extends TestBase {
 
     @Test
     public void testAddressDeletion() {
-        List<AddressData> before = app.address().list();
-        app.address().delete(before);
-        List<AddressData> after = app.address().list();
+        Set<AddressData> before = app.address().set();
+        AddressData deletedAddress = before.iterator().next();
+        app.address().delete(deletedAddress);
+        Set<AddressData> after = app.address().set();
 
         Assert.assertEquals(after.size(), before.size() - 1);
-        before.remove(before.size() - 1);
+        before.remove(deletedAddress);
         Assert.assertEquals(before, after);
     }
 

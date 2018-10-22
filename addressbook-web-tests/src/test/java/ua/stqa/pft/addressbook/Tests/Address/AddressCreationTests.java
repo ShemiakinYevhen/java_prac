@@ -5,23 +5,22 @@ import org.testng.annotations.Test;
 import ua.stqa.pft.addressbook.Models.AddressData;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
-import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
 public class AddressCreationTests extends TestBase {
 
     @Test
     public void testAddressCreation() {
         app.goTo().home();
-        List<AddressData> before = app.address().list();
+        Set<AddressData> before = app.address().set();
         AddressData address = new AddressData().withFirstname("test1").withMiddlename("test2").withGroup("test4-4");
         app.address().create(address, true);
-        List<AddressData> after = app.address().list();
+        Set<AddressData> after = app.address().set();
 
         Assert.assertEquals(after.size(), before.size() + 1);
-        address.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        address.withId(after.stream().mapToInt((a) -> a.getId()).max().getAsInt());
         before.add(address);
-        Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
+        Assert.assertEquals(before, after);
 
     }
 }

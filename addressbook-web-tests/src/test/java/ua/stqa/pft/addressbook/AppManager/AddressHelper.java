@@ -7,8 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ua.stqa.pft.addressbook.Models.AddressData;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class AddressHelper extends HelperBase{
 
@@ -23,15 +24,15 @@ public class AddressHelper extends HelperBase{
         returnToHomePage();
     }
 
-    public void modify(int index, AddressData address) {
-        gotoModificationPage(index);
+    public void modify(AddressData address) {
+        gotoModificationPage(address.getId());
         fillNewAddress(address, false);
         submitAddressModification();
         returnToHomePage();
     }
 
-    public void delete(List<AddressData> before) {
-        selectAddress(before.size() - 1);
+    public void delete(AddressData address) {
+        selectAddress(address.getId());
         submitAddressDeletion();
         acceptAlert();
         returnToHomePage();
@@ -73,15 +74,15 @@ public class AddressHelper extends HelperBase{
     }
 
     public void gotoModificationPage(int index) {
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+        wd.findElement(By.cssSelector("a[href*='edit.php?id=" + index + "']")).click();
     }
 
     public void submitAddressModification() {
         click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
 
-    public void selectAddress(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
+    public void selectAddress(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void submitAddressDeletion() {
@@ -99,8 +100,8 @@ public class AddressHelper extends HelperBase{
         click(By.linkText("home"));
     }
 
-    public List<AddressData> list() {
-        List<AddressData> addresses = new ArrayList<AddressData>();
+    public Set<AddressData> set() {
+        Set<AddressData> addresses = new HashSet<AddressData>();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : elements) {
             String name = element.getText();
