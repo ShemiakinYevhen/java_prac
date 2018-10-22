@@ -4,71 +4,25 @@ import java.util.Objects;
 
 public class AddressData {
     private int id;
-    private final String firstname;
-    private final String middlename;
-    private final String lastname;
-    private final String nickname;
-    private final String title;
-    private final String company;
-    private final String address;
-    private final String home;
-    private final String mobile;
-    private final String work;
-    private final String fax;
-    private final String email;
-    private final String email2;
-    private final String email3;
-    private final String homepage;
-    private final String address2;
-    private final String phone2;
-    private final String notes;
-    private final String group;
-
-    public AddressData(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String address2, String phone2, String notes, String group) {
-        this.id = id;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.fax = fax;
-        this.email = email;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
-        this.group = group;
-    }
-
-    public AddressData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String address2, String phone2, String notes, String group) {
-        this.id = 0;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.fax = fax;
-        this.email = email;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
-        this.group = group;
-    }
+    private  String firstname;
+    private  String middlename;
+    private  String lastname;
+    private  String nickname;
+    private  String title;
+    private  String company;
+    private  String address;
+    private  String home;
+    private  String mobile;
+    private  String work;
+    private  String fax;
+    private  String email;
+    private  String email2;
+    private  String email3;
+    private  String homepage;
+    private  String address2;
+    private  String phone2;
+    private  String notes;
+    private  String group;
 
     public String getFirstname() {
         return firstname;
@@ -150,8 +104,104 @@ public class AddressData {
         return id;
     }
 
-    public void setId(int max) {
+    public AddressData withId(int max) {
         this.id = max;
+        return this;
+    }
+
+    public AddressData withFirstname(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
+
+    public AddressData withMiddlename(String middlename) {
+        this.middlename = middlename;
+        return this;
+    }
+
+    public AddressData withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public AddressData withNickname(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
+    public AddressData withTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public AddressData withCompany(String company) {
+        this.company = company;
+        return this;
+    }
+
+    public AddressData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public AddressData withHome(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public AddressData withMobile(String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
+    public AddressData withWork(String work) {
+        this.work = work;
+        return this;
+    }
+
+    public AddressData withFax(String fax) {
+        this.fax = fax;
+        return this;
+    }
+
+    public AddressData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public AddressData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public AddressData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
+    public AddressData withHomepage(String homepage) {
+        this.homepage = homepage;
+        return this;
+    }
+
+    public AddressData withAddress2(String address2) {
+        this.address2 = address2;
+        return this;
+    }
+
+    public AddressData withPhone2(String phone2) {
+        this.phone2 = phone2;
+        return this;
+    }
+
+    public AddressData withNotes(String notes) {
+        this.notes = notes;
+        return this;
+    }
+
+    public AddressData withGroup(String group) {
+        this.group = group;
+        return this;
     }
 
     @Override

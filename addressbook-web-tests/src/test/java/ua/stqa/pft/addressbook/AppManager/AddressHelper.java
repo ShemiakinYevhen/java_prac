@@ -105,8 +105,7 @@ public class AddressHelper extends HelperBase{
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            AddressData address = new AddressData (id, name, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4");
-            addresses.add(address);
+            addresses.add(new AddressData ().withId(id).withFirstname(name).withGroup("test4"));
         }
         return addresses;
     }

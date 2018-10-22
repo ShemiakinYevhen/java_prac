@@ -15,7 +15,7 @@ public class AddressModificationTests extends TestBase {
         app.goTo().home();
 
         if (app.address().list().size() == 0) {
-            app.address().create(new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4"), true);
+            app.address().create(new AddressData().withFirstname("test1").withMiddlename("test2").withGroup("test4-4"), true);
         }
         app.goTo().home();
     }
@@ -24,7 +24,7 @@ public class AddressModificationTests extends TestBase {
     public void testAddressModification() {
         List<AddressData> before = app.address().list();
         int index = before.size() - 1;
-        AddressData address = new AddressData(before.get(index).getId(),"test1-1", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        AddressData address = new AddressData().withId(before.get(index).getId()).withFirstname("test1-1");
         app.address().modify(index, address);
         List<AddressData> after = app.address().list();
 

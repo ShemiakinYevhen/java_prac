@@ -14,12 +14,12 @@ public class AddressCreationTests extends TestBase {
     public void testAddressCreation() {
         app.goTo().home();
         List<AddressData> before = app.address().list();
-        AddressData address = new AddressData("test1", "test2", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "test4-4");
+        AddressData address = new AddressData().withFirstname("test1").withMiddlename("test2").withGroup("test4-4");
         app.address().create(address, true);
         List<AddressData> after = app.address().list();
 
         Assert.assertEquals(after.size(), before.size() + 1);
-        address.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        address.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
         before.add(address);
         Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
 
