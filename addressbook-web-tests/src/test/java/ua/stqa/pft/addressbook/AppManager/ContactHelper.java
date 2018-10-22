@@ -130,6 +130,7 @@ public class ContactHelper extends HelperBase{
     public ContactData infoFromEditForm(ContactData contact) {
         gotoModificationPage(contact.getId());
         String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
@@ -138,9 +139,32 @@ public class ContactHelper extends HelperBase{
         String email2 = wd.findElement(By.name("email2")).getAttribute("value");
         String email3 = wd.findElement(By.name("email3")).getAttribute("value");
         wd.navigate().back();
-        return new ContactData().withFirstname(firstname).withHome(home).withWork(work)
-                .withMobile(mobile)
+        return new ContactData().withFirstname(firstname).withLastname(lastname).withHomePhone(home).withWorkPhone(work)
+                .withMobilePhone(mobile)
                 .withAddress(address)
                 .withEmail(email1).withEmail2(email2).withEmail3(email3);
+    }
+
+    public ContactData infoFromDetailsForm(ContactData contact) {
+        gotoDetailsPage(contact.getId());
+        String [] Text = wd.findElement(By.xpath("//div[@id='content']")).getText().split("\n");
+        String [] names = Text[0].split(" ");
+        String [] phones = new String [3];
+        for (int i = 0; i < 3; i++) {
+            phones[i] = Text[i+3].replaceAll("\"", "").replaceAll("[a-z, A-Z]: ", "");
+        }
+        String [] emails = new String [3];
+        for (int i = 0; i < 3; i++) {
+            emails[i] = Text[i+7];
+        }
+        wd.navigate().back();
+        return new ContactData().withFirstname(names[0]).withLastname(names[1])
+                .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2])
+                .withAddress(Text[1])
+                .withEmail(emails[0]).withEmail2(emails[1]).withEmail3(emails[2]);
+    }
+
+    private void gotoDetailsPage(int id) {
+        wd.findElement(By.cssSelector("a[href*='view.php?id=" + id + "']")).click();
     }
 }
