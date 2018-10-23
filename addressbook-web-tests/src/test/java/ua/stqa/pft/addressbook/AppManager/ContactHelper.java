@@ -152,16 +152,16 @@ public class ContactHelper extends HelperBase{
         String [] names = Text[0].split(" ");
         String [] phones = new String [3];
         for (int i = 0; i < 3; i++) {
-            phones[i] = Text[i+3].replaceAll("\"", "").replaceAll("[a-z, A-Z]: ", "");
+            phones[i] = Text[i+4].replaceAll("\"", "").replaceAll("[a-z, A-Z]: ", "");
         }
         String [] emails = new String [3];
         for (int i = 0; i < 3; i++) {
-            emails[i] = Text[i+7];
+            emails[i] = Text[i+8];
         }
         wd.navigate().back();
         return new ContactData().withFirstname(names[0]).withLastname(names[1])
                 .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2])
-                .withAddress(Text[1])
+                .withAddress(Text[2])
                 .withEmail(emails[0]).withEmail2(emails[1]).withEmail3(emails[2]);
     }
 
