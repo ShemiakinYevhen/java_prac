@@ -7,6 +7,8 @@ import ua.stqa.pft.addressbook.Models.Contacts;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
@@ -16,8 +18,9 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation() {
         app.goTo().home();
         Contacts before = app.contact().set();
-        ContactData contact = new ContactData().withFirstname("test1").withLastname("test2").withGroup("test4-4")
-                .withAddress("someadrress")
+        File photo = new File("src/test/resources/test.png");
+        ContactData contact = new ContactData().withFirstname("test_c1").withLastname("test_c2").withGroup("test4-4")
+                .withAddress("someadrress").withPhoto(photo)
                 .withHomePhone("111").withWorkPhone("222").withMobilePhone("333")
                 .withEmail("email").withEmail2("email2").withEmail3("email3");
         app.contact().create(contact, true);

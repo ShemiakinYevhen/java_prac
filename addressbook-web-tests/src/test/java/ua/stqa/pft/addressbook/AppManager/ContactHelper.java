@@ -69,6 +69,7 @@ public class ContactHelper extends HelperBase{
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+        attach(By.name("photo"), contactData.getPhoto());
     }
 
     public void submitContactCreation() {
