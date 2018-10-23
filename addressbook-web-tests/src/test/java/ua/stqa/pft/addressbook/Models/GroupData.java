@@ -1,11 +1,19 @@
 package ua.stqa.pft.addressbook.Models;
 
-import java.util.Objects;
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+import java.util.Objects;
+@XStreamAlias("group")
 public class GroupData {
-    private int id;
+    @XStreamOmitField
+    private int id = Integer.MAX_VALUE;
+    @Expose
     private  String name;
+    @Expose
     private  String header;
+    @Expose
     private  String footer;
 
     @Override
