@@ -1,9 +1,9 @@
 package ua.stqa.pft.addressbook.Tests.Group;
 
 import org.hamcrest.CoreMatchers;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import ua.stqa.pft.addressbook.Models.GroupData;
 import ua.stqa.pft.addressbook.Models.Groups;
 import ua.stqa.pft.addressbook.Tests.TestBase;

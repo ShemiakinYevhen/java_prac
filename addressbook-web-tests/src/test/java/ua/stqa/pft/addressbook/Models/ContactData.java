@@ -4,8 +4,8 @@ import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
-import java.io.File;
 import java.util.Objects;
+
 @XStreamAlias("contact")
 public class ContactData {
     @XStreamOmitField
@@ -42,7 +42,26 @@ public class ContactData {
     private  String allPhones;
     private  String allEmails;
     @Expose
-    private  File photo;
+    private  String photo;
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", home='" + home + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", work='" + work + '\'' +
+                ", email='" + email + '\'' +
+                ", email2='" + email2 + '\'' +
+                ", email3='" + email3 + '\'' +
+                ", group='" + group + '\'' +
+                ", photo=" + photo +
+                '}';
+    }
+
+
 
     public int getId() {
         return id;
@@ -132,7 +151,7 @@ public class ContactData {
         return allPhones;
     }
 
-    public File getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
@@ -248,17 +267,9 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withPhoto(File photo) {
+    public ContactData withPhoto(String photo) {
         this.photo = photo;
         return this;
-    }
-
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "id='" + id + '\'' +
-                ", firstname='" + firstname + '\'' +
-                '}';
     }
 
     @Override

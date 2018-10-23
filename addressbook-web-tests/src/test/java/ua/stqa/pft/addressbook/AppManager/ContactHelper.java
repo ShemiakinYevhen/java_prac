@@ -8,6 +8,7 @@ import org.testng.Assert;
 import ua.stqa.pft.addressbook.Models.ContactData;
 import ua.stqa.pft.addressbook.Models.Contacts;
 
+import java.io.File;
 import java.util.List;
 
 public class ContactHelper extends HelperBase{
@@ -69,7 +70,9 @@ public class ContactHelper extends HelperBase{
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
-        attach(By.name("photo"), contactData.getPhoto());
+        if (contactData.getPhoto() != null) {
+            attach(By.name("photo"), new File(contactData.getPhoto()));
+        }
     }
 
     public void submitContactCreation() {
