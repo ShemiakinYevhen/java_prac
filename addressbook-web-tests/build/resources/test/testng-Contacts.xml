@@ -6,6 +6,8 @@
             <class name="ua.stqa.pft.addressbook.Tests.Contact.ContactCreationTests"></class>
             <class name="ua.stqa.pft.addressbook.Tests.Contact.ContactDeletionTests"></class>
             <class name="ua.stqa.pft.addressbook.Tests.Contact.ContactModificationTests"></class>
+            <class name="ua.stqa.pft.addressbook.Tests.Contact.ContactDetailsNEditPagesTests"></class>
+            <class name="ua.stqa.pft.addressbook.Tests.Contact.ContactEditNHomePagesTests"></class>
         </classes>
     </test>
 </suite>
