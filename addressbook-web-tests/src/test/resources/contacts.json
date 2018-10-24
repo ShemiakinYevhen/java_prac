@@ -9,7 +9,6 @@
     "email": "email_0",
     "email2": "email2_0",
     "email3": "email3_0",
-    "group": "test4-4",
     "photo": "src/test/resources/test.png"
   },
   {
@@ -22,7 +21,6 @@
     "email": "email_1",
     "email2": "email2_1",
     "email3": "email3_1",
-    "group": "test4-4",
     "photo": "src/test/resources/test.png"
   },
   {
@@ -35,7 +33,6 @@
     "email": "email_2",
     "email2": "email2_2",
     "email3": "email3_2",
-    "group": "test4-4",
     "photo": "src/test/resources/test.png"
   }
 ]
