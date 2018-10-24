@@ -28,5 +28,6 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="ua.stqa.pft.addressbook.Models.GroupData"/>
+        <mapping class="ua.stqa.pft.addressbook.Models.ContactData"/>
     </session-factory>
 </hibernate-configuration>
