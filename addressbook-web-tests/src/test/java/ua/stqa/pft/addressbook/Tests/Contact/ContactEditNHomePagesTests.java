@@ -22,7 +22,7 @@ public class ContactEditNHomePagesTests extends TestBase {
             app.contact().create(new ContactData().withFirstname("test1").withLastname("test2")
                     .withAddress("someadrress").withPhoto("src/test/resources/test.png")
                     .withHomePhone("111").withWorkPhone("222").withMobilePhone("333")
-                    .withEmail("email").withEmail2("email2").withEmail3("email3"), true);
+                    .withEmail("email").withEmail2("email2").withEmail3("email3").inGroup(app.db().groups().iterator().next()), true);
         }
     }
 

@@ -175,4 +175,34 @@ public class ContactHelper extends HelperBase{
     private void gotoDetailsPage(int id) {
         wd.findElement(By.cssSelector("a[href*='view.php?id=" + id + "']")).click();
     }
+
+    public void addContactToGroup(int contactId, String groupName) {
+        selectContact(contactId);
+        selectGroupForAdding(groupName);
+        submitContactAddingToGroup();
+        returnToHomePage();
+    }
+
+    public void selectGroupForAdding(String groupName) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
+    }
+
+    public void submitContactAddingToGroup() {
+        click(By.name("add"));
+    }
+
+    public void deleteContactFromGroup(int contactId, String groupName) {
+        selectGroupFilter(groupName);
+        selectContact(contactId);
+        submitContactDeletionFromGroup();
+        returnToHomePage();
+    }
+
+    private void submitContactDeletionFromGroup() {
+        click(By.name("remove"));
+    }
+
+    private void selectGroupFilter(String groupName) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(groupName);
+    }
 }
