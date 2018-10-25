@@ -17,14 +17,13 @@ public class ContactEditNHomePagesTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().home();
-        if (app.contact().set().size() == 0) {
+        if (app.db().contacts().size() == 0) {
+            app.goTo().home();
             app.contact().create(new ContactData().withFirstname("test1").withLastname("test2").withGroup("test4-4")
                     .withAddress("someadrress").withPhoto("src/test/resources/test.png")
                     .withHomePhone("111").withWorkPhone("222").withMobilePhone("333")
                     .withEmail("email").withEmail2("email2").withEmail3("email3"), true);
         }
-        app.goTo().home();
     }
 
     @Test
@@ -39,9 +38,7 @@ public class ContactEditNHomePagesTests extends TestBase {
     }
 
     public String mergeEmails(ContactData contact) {
-        return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
-                .stream().filter((s) -> !s.equals(""))
-                .collect(Collectors.joining("\n"));
+        return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3()).stream().filter((s) -> !s.equals("")).collect(Collectors.joining("\n"));
     }
 
     public String mergePhones (ContactData contact) {

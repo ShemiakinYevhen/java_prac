@@ -116,12 +116,13 @@ public class ContactHelper extends HelperBase{
         for (WebElement element : elements) {
             List <WebElement> cells = element.findElements(By.tagName("td"));
             String firstname = cells.get(2).getText();
+            String lastname = cells.get(1).getText();
             String allPhones = cells.get(5).getText();
             String address = cells.get(3).getText();
             String allEmails = cells.get(4).getText();
             int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-            contactCache.add(new ContactData ().withId(id).withFirstname(firstname).withGroup("test4")
-                    .withAllPhones(allPhones).withAddress(address).withAllEmails(allEmails));
+            contactCache.add(new ContactData ().withId(id).withFirstname(firstname).withLastname(lastname)
+                    .withAddress(address).withAllPhones(allPhones).withAllEmails(allEmails));
         }
         return new Contacts(contactCache);
     }

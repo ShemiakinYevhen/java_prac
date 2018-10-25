@@ -1,5 +1,7 @@
 package ua.stqa.pft.addressbook.Tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,11 +10,19 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import ua.stqa.pft.addressbook.AppManager.ApplicationManager;
-import ua.stqa.pft.addressbook.Tests.Group.GroupCreationTests;
+import ua.stqa.pft.addressbook.Models.ContactData;
+import ua.stqa.pft.addressbook.Models.Contacts;
+import ua.stqa.pft.addressbook.Models.GroupData;
+import ua.stqa.pft.addressbook.Models.Groups;
+import ua.stqa.pft.addressbook.Tests.Contact.ContactEditNHomePagesTests;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 public class TestBase {
 
@@ -45,5 +55,27 @@ public class TestBase {
     @AfterMethod(alwaysRun = true)
     public void logTestStop(Method method, Object[] p) {
         logger.info("Stop test " + method.getName() + " with parameters " + Arrays.asList(p));
+    }
+
+    public void verifyGroupListInUI() {
+        if (Boolean.getBoolean("verifyUI")) {
+            Groups uiGroups = app.group().set();
+            Groups dbGroups = app.db().groups();
+            assertThat(uiGroups, equalTo(dbGroups.stream().map((g) -> new GroupData().withId(g.getId()).withName((g.getName())))
+                    .collect(Collectors.toSet())));
+        }
+    }
+
+    public void verifyContactListInUI() {
+        if (Boolean.getBoolean("verifyUI")) {
+            Contacts uiContacts = app.contact().set();
+            Contacts dbContacts = app.db().contacts();
+            assertThat(uiContacts, equalTo(dbContacts.stream().map((c) -> new ContactData().withId(c.getId()).withFirstname(c.getFirstname())
+                    .withLastname(c.getLastname()).withAddress(c.getAddress())
+                    .withAllEmails(Arrays.asList(c.getEmail(), c.getEmail2(), c.getEmail3()).stream().filter((s) -> !s.equals("")).collect(Collectors.joining("\n")))
+                    .withAllPhones(Arrays.asList(c.getHomePhone(), c.getMobilePhone(), c.getWorkPhone()).stream().filter((s) -> !s.equals(""))
+                            .map(ContactEditNHomePagesTests::cleaned).collect(Collectors.joining("\n"))))
+                    .collect(Collectors.toSet())));
+        }
     }
 }
