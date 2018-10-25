@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+
 import ua.stqa.pft.addressbook.AppManager.ApplicationManager;
 import ua.stqa.pft.addressbook.Models.ContactData;
 import ua.stqa.pft.addressbook.Models.Contacts;

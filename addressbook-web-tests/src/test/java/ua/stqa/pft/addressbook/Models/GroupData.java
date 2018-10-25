@@ -37,10 +37,6 @@ public class GroupData {
     @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
     private Set<ContactData> contacts = new HashSet<ContactData>();
 
-
-
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
