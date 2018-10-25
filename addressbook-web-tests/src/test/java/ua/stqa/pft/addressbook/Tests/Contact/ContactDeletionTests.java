@@ -34,7 +34,5 @@ public class ContactDeletionTests extends TestBase {
         assertThat(after, CoreMatchers.equalTo(before.without(deletedContact)));
         verifyContactListInUI();
     }
-
-
 }
 

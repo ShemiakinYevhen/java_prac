@@ -3,6 +3,7 @@ package ua.stqa.pft.addressbook.Tests.Group;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
