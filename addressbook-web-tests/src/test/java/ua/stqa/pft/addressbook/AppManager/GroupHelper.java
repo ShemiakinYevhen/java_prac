@@ -42,6 +42,34 @@ public class GroupHelper extends HelperBase{
         click(By.name("new"));
     }
 
+    public void initGroupModification() {
+        click(By.name("edit"));
+    }
+
+    public void returnToGroupPage() {
+        click(By.linkText("group page"));
+    }
+
+    private void select(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
+    public void deleteSelectedGroups() {
+        click(By.name("delete"));
+    }
+
+    public void submitGroupCreation() {
+        click(By.name("submit"));
+    }
+
+    public void submitGroupModification() {
+        click(By.name("update"));
+    }
+
+    public int count () {
+        return wd.findElements(By.cssSelector("span.group")).size();
+    }
+
     public void fillGroupForm(GroupData groupData) {
         if (groupData.getName() != null) {
             type(By.name("group_name"), groupData.getName());
@@ -52,34 +80,6 @@ public class GroupHelper extends HelperBase{
         if (groupData.getFooter() != null) {
             type(By.name("group_footer"), groupData.getFooter());
         }
-    }
-
-    public void submitGroupCreation() {
-        click(By.name("submit"));
-    }
-
-    public void initGroupModification() {
-        click(By.name("edit"));
-    }
-
-    public void submitGroupModification() {
-        click(By.name("update"));
-    }
-
-    public void returnToGroupPage() {
-        click(By.linkText("group page"));
-    }
-
-    public void deleteSelectedGroups() {
-        click(By.name("delete"));
-    }
-
-    private void select(int id) {
-        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
-    }
-
-    public int count () {
-        return wd.findElements(By.cssSelector("span.group")).size();
     }
 
     Groups groupCache = null;

@@ -34,12 +34,12 @@ public class GroupData {
     @Type(type = "text")
     private  String footer;
 
-    public Contacts getContacts() {
-        return new Contacts (contacts);
-    }
-
     @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
     private Set<ContactData> contacts = new HashSet<ContactData>();
+
+
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -83,6 +83,10 @@ public class GroupData {
         return footer;
     }
 
+    public Contacts getContacts() {
+        return new Contacts (contacts);
+    }
+
     public GroupData withId(int max) {
         this.id = max;
         return this;
@@ -100,6 +104,11 @@ public class GroupData {
 
     public GroupData withFooter(String footer) {
         this.footer = footer;
+        return this;
+    }
+
+    public GroupData withContacts(ContactData contact) {
+        this.contacts.add(contact);
         return this;
     }
 }

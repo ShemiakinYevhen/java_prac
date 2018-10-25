@@ -16,7 +16,6 @@ public class DBHelper {
     private final SessionFactory sessionFactory;
 
     public DBHelper() {
-        // A SessionFactory is set up once for an application!
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
         sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
     }

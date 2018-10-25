@@ -28,15 +28,13 @@ public class ContactModificationTests extends TestBase {
         Contacts before = app.db().contacts();
         ContactData modifiedContact = before.iterator().next();
         ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("test1-1");
+        app.goTo().home();
         app.contact().modify(contact);
         //При нормальной работе функции модифицирования было бы:
         //Assert.assertEquals(app.contact().count(), before.size());
         Assert.assertEquals(app.contact().count(), before.size() - 1);
         Contacts after = app.db().contacts();
-        //Проверка результатов модификации контакта с учетом того, что функция модификации удаляет модифицируемый контакт (баг)
         assertThat(after, CoreMatchers.equalTo(before.withChanged(modifiedContact, contact)));
-        //Условие проверки результатов модификации контакта при нормальной работе функции модификации
-        //Assert.assertEquals(after, before);
         verifyContactListInUI();
     }
 }

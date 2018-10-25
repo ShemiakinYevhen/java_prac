@@ -27,17 +27,23 @@ public class ContactFromGroupDeletionTests extends TestBase{
     }
 
     @Test
-    public void testContactGromGroupDeletion() {
+    public void testContactFromGroupDeletion() {
         ContactData contact = app.db().contacts().iterator().next();
+        if (contact.getGroups().size() == 0) {
+            GroupData groupForCheck = app.db().groups().iterator().next();
+            app.contact().addContactToGroup(contact.getId(), groupForCheck.getName());
+            contact.inGroup(groupForCheck);
+            groupForCheck.withContacts(contact);
+        }
         GroupData group = contact.getGroups().iterator().next();
-        Groups beforeGroupsOfContact = contact.getGroups();
-        Contacts beforeContactsOfGroup = group.getContacts();
+        Groups beforeGroupsOfContact = app.db().contacts().iterator().next().getGroups();
+        Contacts beforeContactsOfGroup = app.db().groups().iterator().next().getContacts();
         app.goTo().home();
         app.contact().deleteContactFromGroup(contact.getId(), group.getName());
-        Groups afterGroupsOfContact = contact.getGroups();
-        Contacts afterContactsOfGroup = group.getContacts();
-        beforeContactsOfGroup.add(contact);
-        beforeGroupsOfContact.add(group);
+        Groups afterGroupsOfContact = app.db().contacts().iterator().next().getGroups();
+        Contacts afterContactsOfGroup = app.db().groups().iterator().next().getContacts();
+        beforeContactsOfGroup.remove(contact);
+        beforeGroupsOfContact.remove(group);
         assertThat(beforeContactsOfGroup, equalTo(afterContactsOfGroup));
         assertThat(beforeGroupsOfContact, equalTo(afterGroupsOfContact));
     }

@@ -41,8 +41,82 @@ public class ContactHelper extends HelperBase{
         returnToHomePage();
     }
 
+    public void addContactToGroup(int contactId, String groupName) {
+        selectContact(contactId);
+        selectGroupForAdding(groupName);
+        submitContactAddingToGroup();
+        returnToHomePage();
+    }
+
+    public void deleteContactFromGroup(int contactId, String groupName) {
+        selectGroupFilter(groupName);
+        selectContact(contactId);
+        submitContactDeletionFromGroup();
+        returnToHomePage();
+        deselectGroupFilter();
+    }
+
     public void initContactCreation() {
         click(By.linkText("add new"));
+    }
+
+    public void gotoModificationPage(int id) {
+        wd.findElement(By.cssSelector("a[href*='edit.php?id=" + id + "']")).click();
+    }
+
+    private void gotoDetailsPage(int id) {
+        wd.findElement(By.cssSelector("a[href*='view.php?id=" + id + "']")).click();
+    }
+
+    public void returnToHomePage() {
+        if (isElementPresent(By.id("maintable"))) {
+            return;
+        }
+        click(By.linkText("home"));
+    }
+
+    public void selectContact(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
+    public void selectGroupForAdding(String groupName) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
+    }
+
+    private void selectGroupFilter(String groupName) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(groupName);
+    }
+
+    private void deselectGroupFilter() {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
+    }
+
+    public void submitContactCreation() {
+        click(By.xpath("//div[@id='content']/form/input[21]"));
+    }
+
+    public void submitContactModification() {
+        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+    }
+
+    public void submitContactDeletion() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    }
+
+    public void submitContactAddingToGroup() {
+        click(By.name("add"));
+    }
+
+    private void submitContactDeletionFromGroup() {
+        click(By.name("remove"));
+    }
+
+    public void acceptAlert() {
+        wd.switchTo().alert().accept();
+    }
+
+    public int count() {
+        return wd.findElements(By.xpath("//tr[@name='entry']")).size();
     }
 
     public void fillNewContact(ContactData contactData, boolean creation) {
@@ -76,41 +150,6 @@ public class ContactHelper extends HelperBase{
         if (contactData.getPhoto() != null) {
             attach(By.name("photo"), new File(contactData.getPhoto()));
         }
-    }
-
-    public void submitContactCreation() {
-        click(By.xpath("//div[@id='content']/form/input[21]"));
-    }
-
-    public void gotoModificationPage(int id) {
-        wd.findElement(By.cssSelector("a[href*='edit.php?id=" + id + "']")).click();
-    }
-
-    public void submitContactModification() {
-        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
-    }
-
-    public void selectContact(int id) {
-        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
-    }
-
-    public void submitContactDeletion() {
-        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
-    }
-
-    public void acceptAlert() {
-        wd.switchTo().alert().accept();
-    }
-
-    public void returnToHomePage() {
-        if (isElementPresent(By.id("maintable"))) {
-            return;
-        }
-        click(By.linkText("home"));
-    }
-
-    public int count() {
-        return wd.findElements(By.xpath("//tr[@name='entry']")).size();
     }
 
     Contacts contactCache = null;
@@ -170,39 +209,5 @@ public class ContactHelper extends HelperBase{
                 .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2])
                 .withAddress(Text[2])
                 .withEmail(emails[0]).withEmail2(emails[1]).withEmail3(emails[2]);
-    }
-
-    private void gotoDetailsPage(int id) {
-        wd.findElement(By.cssSelector("a[href*='view.php?id=" + id + "']")).click();
-    }
-
-    public void addContactToGroup(int contactId, String groupName) {
-        selectContact(contactId);
-        selectGroupForAdding(groupName);
-        submitContactAddingToGroup();
-        returnToHomePage();
-    }
-
-    public void selectGroupForAdding(String groupName) {
-        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
-    }
-
-    public void submitContactAddingToGroup() {
-        click(By.name("add"));
-    }
-
-    public void deleteContactFromGroup(int contactId, String groupName) {
-        selectGroupFilter(groupName);
-        selectContact(contactId);
-        submitContactDeletionFromGroup();
-        returnToHomePage();
-    }
-
-    private void submitContactDeletionFromGroup() {
-        click(By.name("remove"));
-    }
-
-    private void selectGroupFilter(String groupName) {
-        new Select(wd.findElement(By.name("group"))).selectByVisibleText(groupName);
     }
 }
