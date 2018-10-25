@@ -5,11 +5,14 @@ import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import ua.stqa.pft.addressbook.Models.ContactData;
 import ua.stqa.pft.addressbook.Models.Contacts;
+import ua.stqa.pft.addressbook.Models.GroupData;
+import ua.stqa.pft.addressbook.Models.Groups;
 import ua.stqa.pft.addressbook.Tests.TestBase;
 
 import java.io.*;
@@ -56,8 +59,17 @@ public class ContactCreationTests extends TestBase {
         return contacts.stream().map((c) -> new Object[]{c}).collect(Collectors.toList()).iterator();
     }
 
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if (app.db().groups().size() == 0) {
+            app.goTo().group();
+            app.group().create(new GroupData().withName("precName").withHeader("precHeader").withFooter("precFooter"));
+        }
+    }
     @Test(dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactData contact) {
+        Groups groups = app.db().groups();
+        contact.inGroup(groups.iterator().next());
         app.goTo().home();
         Contacts before = app.db().contacts();
         app.contact().create(contact, true);
@@ -71,7 +83,7 @@ public class ContactCreationTests extends TestBase {
     public void testBadContactCreation() {
         app.goTo().home();
         Contacts before = app.db().contacts();
-        ContactData contact = new ContactData().withFirstname("test1'").withLastname("test2").withGroup("test4-4");
+        ContactData contact = new ContactData().withFirstname("test1'").withLastname("test2");
         app.contact().create(contact, true);
         Assert.assertEquals(app.contact().count(), before.size());
         Contacts after = app.db().contacts();

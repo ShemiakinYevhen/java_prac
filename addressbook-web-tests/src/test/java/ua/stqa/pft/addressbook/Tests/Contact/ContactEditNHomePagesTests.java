@@ -19,7 +19,7 @@ public class ContactEditNHomePagesTests extends TestBase {
     public void ensurePreconditions() {
         if (app.db().contacts().size() == 0) {
             app.goTo().home();
-            app.contact().create(new ContactData().withFirstname("test1").withLastname("test2").withGroup("test4-4")
+            app.contact().create(new ContactData().withFirstname("test1").withLastname("test2")
                     .withAddress("someadrress").withPhoto("src/test/resources/test.png")
                     .withHomePhone("111").withWorkPhone("222").withMobilePhone("333")
                     .withEmail("email").withEmail2("email2").withEmail3("email3"), true);

@@ -6,7 +6,9 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -87,10 +89,6 @@ public class ContactData {
     @Transient
     private  String notes;
 
-    @Expose
-    @Transient
-    private  String group;
-
     @Transient
     private  String allPhones;
 
@@ -101,6 +99,11 @@ public class ContactData {
     @Column(name = "photo")
     @Type(type = "text")
     private  String photo;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
 
     @Override
     public boolean equals(Object o) {
@@ -201,10 +204,6 @@ public class ContactData {
         return notes;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
     public String getAllEmails() {
         return allEmails;
     }
@@ -240,7 +239,6 @@ public class ContactData {
                 ", address2='" + address2 + '\'' +
                 ", phone2='" + phone2 + '\'' +
                 ", notes='" + notes + '\'' +
-                ", group='" + group + '\'' +
                 ", allPhones='" + allPhones + '\'' +
                 ", allEmails='" + allEmails + '\'' +
                 ", photo='" + photo + '\'' +
@@ -342,9 +340,8 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
+    public Groups getGroups() {
+        return new Groups(groups);
     }
 
     public ContactData withAllEmails(String allEmails) {
@@ -362,4 +359,8 @@ public class ContactData {
         return this;
     }
 
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
+    }
 }
