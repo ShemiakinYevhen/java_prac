@@ -21,6 +21,7 @@ public class ApplicationManager {
     private RegistrationHelper registrationHelper;
     private FTPHelper ftp;
     private MailHelper mailHelper;
+    private PasswordChangingHelper passChangingHelper;
 
     public ApplicationManager(String browser) throws IOException {
         this.browser = browser;
@@ -81,5 +82,12 @@ public class ApplicationManager {
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
+    }
+
+    public PasswordChangingHelper passChange() {
+        if (passChangingHelper == null) {
+            passChangingHelper = new PasswordChangingHelper(this);
+        }
+        return passChangingHelper;
     }
 }
