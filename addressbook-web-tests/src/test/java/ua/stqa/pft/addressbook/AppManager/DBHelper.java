@@ -13,7 +13,7 @@ import ua.stqa.pft.addressbook.Models.Groups;
 
 import java.util.List;
 
-public class DBHelper {
+public class DBHelper{
     private final SessionFactory sessionFactory;
 
     public DBHelper() {

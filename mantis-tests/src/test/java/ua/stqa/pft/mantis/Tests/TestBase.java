@@ -3,10 +3,13 @@ package ua.stqa.pft.mantis.Tests;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import ru.lanwen.verbalregex.VerbalExpression;
 import ua.stqa.pft.mantis.AppManager.ApplicationManager;
+import ua.stqa.pft.mantis.Models.MailMessage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 
 public class TestBase {
@@ -19,6 +22,12 @@ public class TestBase {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String findConfirmationLink(List<MailMessage> mailMessages, String email) {
+        MailMessage mailMessage = mailMessages.stream().filter((m) -> m.to.equals(email)).findFirst().get();
+        VerbalExpression regex = VerbalExpression.regex().find("http://").nonSpace().oneOrMore().build();
+        return regex.getText(mailMessage.text);
     }
 
     @BeforeSuite
