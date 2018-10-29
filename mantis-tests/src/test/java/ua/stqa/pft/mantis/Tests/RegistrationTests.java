@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import ua.stqa.pft.mantis.Models.MailMessage;
 import ua.stqa.pft.mantis.Models.UserData;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,12 +20,14 @@ public class RegistrationTests extends TestBase{
     }
 
     @Test
-    public void testRegistration() throws IOException {
+    public void testRegistration() throws IOException, MessagingException {
         long now = System.currentTimeMillis();
         UserData user = new UserData().withEmail(String.format("user1%s@localhost.localdomain", now))
                 .withUsername(String.format("user1%s", now)).withPassword("password");
+        app.james().createUser(user.getUsername(), user.getPassword());
         app.registration().start(user.getUsername(), user.getEmail());
         List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
+        //List<MailMessage> mailMessages = app.james().waitForMail(user.getUsername(), user.getPassword(), 60000);
         String confirmationLink = findConfirmationLink(mailMessages, user.getEmail());
         app.registration().finish(confirmationLink, user.getPassword());
         assertTrue(app.newSession().login(user.getUsername(),  user.getPassword()));

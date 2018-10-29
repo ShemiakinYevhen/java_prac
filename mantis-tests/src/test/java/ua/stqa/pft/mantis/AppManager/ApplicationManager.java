@@ -23,6 +23,7 @@ public class ApplicationManager {
     private MailHelper mailHelper;
     private PasswordChangingHelper passChangingHelper;
     private DBHelper dbhelper;
+    private JamesHelper jamesHelper;
 
     public ApplicationManager(String browser) throws IOException {
         this.browser = browser;
@@ -97,5 +98,12 @@ public class ApplicationManager {
             dbhelper = new DBHelper();
         }
         return dbhelper;
+    }
+
+    public JamesHelper james() {
+        if (jamesHelper == null) {
+            jamesHelper = new JamesHelper(this);
+        }
+        return jamesHelper;
     }
 }
