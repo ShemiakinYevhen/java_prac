@@ -20,8 +20,9 @@ public class RegistrationTests extends TestBase{
 
     @Test
     public void testRegistration() throws IOException {
-        String email = "user1@localhost.localdomain";
-        String login = "user1";
+        long now = System.currentTimeMillis();
+        String email = String.format("user1%s@localhost.localdomain", now);
+        String login = String.format("user1%s", now);
         String password = "password";
         app.registration().start(login, email);
         List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
