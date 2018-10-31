@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.stqa.pft.mantis.Tests.LoginTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-10-31T16:52:02" hostname="shemiakin" time="1.267">
+  <properties/>
+  <testcase name="testLogin" classname="ua.stqa.pft.mantis.Tests.LoginTests" time="1.267"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

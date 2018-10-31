@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.stqa.pft.addressbook.Tests.DBConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-10-31T17:05:02" hostname="shemiakin" time="0.009">
+  <properties/>
+  <testcase name="testDBConnection" classname="ua.stqa.pft.addressbook.Tests.DBConnectionTest" time="0.009"/>
+  <system-out><![CDATA[[GroupData{id=105, name='test4-4', header='test5', footer='footer0'}, GroupData{id=106, name='test1', header='header1', footer='footer1'}, GroupData{id=107, name='test2', header='header2', footer='footer2'}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
