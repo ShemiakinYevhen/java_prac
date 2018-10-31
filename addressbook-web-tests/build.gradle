@@ -42,6 +42,7 @@ task testGroups (type: Test) {
     }
 }
 
+/*
 task testContacts (type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-Contacts.xml'
@@ -55,4 +56,4 @@ task testContacts (type: Test) {
     if (project.hasProperty('verifyUI')) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
-}
+}*/
