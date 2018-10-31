@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
+mainClassName = "ua.stqa.pft.addressbook-web-tests.HBConnectionTest"
 
 repositories {
     mavenCentral()
@@ -35,7 +36,4 @@ task testGroups (type: Test) {
     }
 }
 
-test {
-    useTestNG()
-}
 
