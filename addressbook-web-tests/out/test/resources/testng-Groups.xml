@@ -3,8 +3,6 @@
 <suite name="Suite1" verbose="1">
     <test name="Groups">
         <classes>
-            <class name="ua.stqa.pft.addressbook.Tests.Group.GroupCreationTests"></class>
-            <class name="ua.stqa.pft.addressbook.Tests.Group.GroupDeletionTests"></class>
             <class name="ua.stqa.pft.addressbook.Tests.Group.GroupModificationTests"></class>
         </classes>
     </test>
