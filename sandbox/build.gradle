@@ -1,6 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'application'
-mainClassName = "HelloWorld"
 
 repositories {
     mavenCentral()
@@ -9,3 +7,10 @@ repositories {
 dependencies {
     compile 'org.testng:testng:7.0.0-beta1'
 }
+
+task testAll (type: Test) {
+    useTestNG {
+        suites 'src/test/resources/sandboxTests.xml'
+    }
+}
+
