@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.stqa.pft.sandbox.PrimeTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-10-31T15:28:16" hostname="shemiakin" time="5.29">
-  <properties/>
-  <testcase name="testPrimes" classname="ua.stqa.pft.sandbox.PrimeTests" time="5.289"/>
-  <testcase name="testPrimesFast" classname="ua.stqa.pft.sandbox.PrimeTests" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
