@@ -42,7 +42,6 @@ public class Contacts extends ForwardingSet<ContactData> {
     public Contacts withChanged (ContactData before, ContactData after) {
         Contacts contacts = new Contacts(this);
         contacts.remove(before);
-        //Имело бы смысл при нормальной работе функции редактирвоания
         //contacts.add(after);
         return contacts;
     }
