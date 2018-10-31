@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
 repositories {
     mavenCentral()
@@ -57,3 +58,8 @@ task testContacts (type: Test) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
 }*/
+
+
+test {
+    useTestNG()
+}
