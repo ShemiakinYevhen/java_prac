@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-groups.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-groups.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-groups_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-groups_main.iml" group="addressbook-groups" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-groups_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-groups_test.iml" group="addressbook-groups" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" group="addressbook-web-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" group="addressbook-web-tests" />
