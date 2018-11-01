@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="addressbook-groups_main" target="11" />
+      <module name="addressbook-groups_test" target="11" />
       <module name="addressbook-web-tests_main" target="11" />
       <module name="addressbook-web-tests_test" target="11" />
       <module name="github-sample_main" target="11" />

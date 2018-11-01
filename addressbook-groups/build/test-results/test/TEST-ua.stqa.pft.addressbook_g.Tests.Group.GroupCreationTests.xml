@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.stqa.pft.addressbook_g.Tests.Group.GroupCreationTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-11-01T09:02:02" hostname="shemiakin" time="4.053">
+  <properties/>
+  <testcase name="testBadGroupCreation" classname="ua.stqa.pft.addressbook_g.Tests.Group.GroupCreationTests" time="1.214"/>
+  <testcase name="testGroupCreation[0](GroupData{id=2147483647, name='test0', header='header0', footer='footer0'})" classname="ua.stqa.pft.addressbook_g.Tests.Group.GroupCreationTests" time="0.988"/>
+  <testcase name="testGroupCreation[1](GroupData{id=2147483647, name='test1', header='header1', footer='footer1'})" classname="ua.stqa.pft.addressbook_g.Tests.Group.GroupCreationTests" time="0.911"/>
+  <testcase name="testGroupCreation[2](GroupData{id=2147483647, name='test2', header='header2', footer='footer2'})" classname="ua.stqa.pft.addressbook_g.Tests.Group.GroupCreationTests" time="0.883"/>
+  <system-out><![CDATA[Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+GroupData{id=117, name='test0', header='header0', footer='footer0'}
+Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+GroupData{id=117, name='test0', header='header0', footer='footer0'}
+Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+GroupData{id=117, name='test0', header='header0', footer='footer0'}
+GroupData{id=118, name='test1', header='header1', footer='footer1'}
+Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+GroupData{id=117, name='test0', header='header0', footer='footer0'}
+GroupData{id=118, name='test1', header='header1', footer='footer1'}
+Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+GroupData{id=117, name='test0', header='header0', footer='footer0'}
+GroupData{id=118, name='test1', header='header1', footer='footer1'}
+GroupData{id=119, name='test2', header='header2', footer='footer2'}
+]]></system-out>
+  <system-err><![CDATA[Nov 01, 2018 11:02:02 AM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+]]></system-err>
+</testsuite>

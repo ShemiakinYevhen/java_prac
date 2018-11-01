@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.stqa.pft.addressbook_g.Tests.HBConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-11-01T09:02:07" hostname="shemiakin" time="0.016">
+  <properties/>
+  <testcase name="testHBConnection" classname="ua.stqa.pft.addressbook_g.Tests.HBConnectionTest" time="0.016"/>
+  <system-out><![CDATA[Hibernate: select groupdata0_.group_id as group_id1_0_, groupdata0_.group_footer as group_fo2_0_, groupdata0_.group_header as group_he3_0_, groupdata0_.group_name as group_na4_0_ from group_list groupdata0_
+GroupData{id=106, name='test1', header='header1', footer='footer1'}
+GroupData{id=107, name='test2', header='header2', footer='footer2'}
+GroupData{id=110, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=111, name='test4-4', header='test5', footer='footer0'}
+GroupData{id=112, name='test1', header='header1', footer='footer1'}
+GroupData{id=113, name='test4-4', header='test5', footer='footer2'}
+GroupData{id=114, name='test0', header='header0', footer='footer0'}
+GroupData{id=115, name='test1', header='header1', footer='footer1'}
+GroupData{id=116, name='test2', header='header2', footer='footer2'}
+GroupData{id=118, name='test1', header='header1', footer='footer1'}
+GroupData{id=119, name='test2', header='header2', footer='footer2'}
+]]></system-out>
+  <system-err><![CDATA[Nov 01, 2018 11:02:07 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Nov 01, 2018 11:02:07 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/addressbook]
+Nov 01, 2018 11:02:07 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=root, password=****}
+Nov 01, 2018 11:02:07 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Nov 01, 2018 11:02:07 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 1 (min=1)
+Nov 01, 2018 11:02:07 AM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+Nov 01, 2018 11:02:07 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7ca4b5bc] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Nov 01, 2018 11:02:07 AM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+]]></system-err>
+</testsuite>
