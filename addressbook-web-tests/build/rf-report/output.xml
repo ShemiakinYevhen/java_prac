@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Jython 2.7.0 on java1.8.0_191)" generated="20181102 15:49:39.706">
+<suite source="C:\Java_Prac\java_prac\addressbook-web-tests\src\test\resources\rf" name="Rf" id="s1">
+<suite source="C:\Java_Prac\java_prac\addressbook-web-tests\src\test\resources\rf\groups.robot" name="Groups" id="s1-s1">
+<kw type="setup" library="ua.stqa.pft.addressbook.rf.AddressbookKeywords" name="Init Application Manager">
+<msg level="INFO" timestamp="20181102 15:50:04.216">Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Starting ChromeDriver 2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a) on port 1306
+Only local connections are allowed.
+Nov 02, 2018 3:49:55 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS</msg>
+<status endtime="20181102 15:50:04.220" starttime="20181102 15:49:40.053" status="PASS"></status>
+</kw>
+<test name="Can Create Group With Valid Data" id="s1-s1-t1">
+<kw library="ua.stqa.pft.addressbook.rf.AddressbookKeywords" name="Get Group Count">
+<assign>
+<var>${old_count}</var>
+</assign>
+<msg level="INFO" timestamp="20181102 15:50:04.528">${old_count} = 31</msg>
+<status endtime="20181102 15:50:04.534" starttime="20181102 15:50:04.238" status="PASS"></status>
+</kw>
+<kw library="ua.stqa.pft.addressbook.rf.AddressbookKeywords" name="Create Group">
+<arguments>
+<arg>test name</arg>
+<arg>test header</arg>
+<arg>test footer</arg>
+</arguments>
+<status endtime="20181102 15:50:06.623" starttime="20181102 15:50:04.536" status="PASS"></status>
+</kw>
+<kw library="ua.stqa.pft.addressbook.rf.AddressbookKeywords" name="Get Group Count">
+<assign>
+<var>${new_count}</var>
+</assign>
+<msg level="INFO" timestamp="20181102 15:50:06.816">${new_count} = 32</msg>
+<status endtime="20181102 15:50:06.817" starttime="20181102 15:50:06.625" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${old_count} + 1</arg>
+</arguments>
+<assign>
+<var>${expected_count}</var>
+</assign>
+<msg level="INFO" timestamp="20181102 15:50:06.844">${expected_count} = 32</msg>
+<status endtime="20181102 15:50:06.846" starttime="20181102 15:50:06.819" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Integers">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${new_count}</arg>
+<arg>${expected_count}</arg>
+</arguments>
+<status endtime="20181102 15:50:06.851" starttime="20181102 15:50:06.847" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20181102 15:50:06.853" starttime="20181102 15:50:04.228" status="PASS"></status>
+</test>
+<kw type="teardown" library="ua.stqa.pft.addressbook.rf.AddressbookKeywords" name="Stop Application Manager">
+<status endtime="20181102 15:50:07.516" starttime="20181102 15:50:06.861" status="PASS"></status>
+</kw>
+<status endtime="20181102 15:50:07.517" starttime="20181102 15:49:39.990" status="PASS"></status>
+</suite>
+<status endtime="20181102 15:50:07.534" starttime="20181102 15:49:39.722" status="PASS"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" name="Rf" id="s1">Rf</stat>
+<stat pass="1" fail="0" name="Groups" id="s1-s1">Rf.Groups</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
