@@ -1,0 +1,45 @@
+{
+  "uid" : "44898c1a8ab54d1c",
+  "name" : "testBadGroupCreation",
+  "fullName" : "Suite1.testBadGroupCreation",
+  "historyId" : "59396103e8665b2bf926d67c3c133bc4",
+  "time" : {
+    "start" : 1541158322047,
+    "stop" : 1541158325209,
+    "duration" : 3162
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Suite1"
+  }, {
+    "name" : "testClass",
+    "value" : "Suite1"
+  }, {
+    "name" : "testMethod",
+    "value" : "testBadGroupCreation"
+  }, {
+    "name" : "package",
+    "value" : "Suite1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "44898c1a8ab54d1c.json",
+  "parameterValues" : [ ]
+}

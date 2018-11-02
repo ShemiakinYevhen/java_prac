@@ -1,41 +1,58 @@
 {
+  "ee5c95d4fd96ed5d5d3bc4ac70ba987c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "101265ea176a2b45",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158327139,
+        "stop" : 1541158328614,
+        "duration" : 1475
+      }
+    } ]
+  },
   "e101216fa8723edd2179ce53a68f50e2" : {
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
-      "skipped" : 1,
-      "passed" : 0,
+      "skipped" : 0,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "aacf7380519c57ec",
-      "status" : "skipped",
-      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "uid" : "2922644f3e678223",
+      "status" : "passed",
       "time" : {
-        "start" : 1541095388530,
-        "stop" : 1541095388530,
-        "duration" : 0
+        "start" : 1541158330212,
+        "stop" : 1541158330922,
+        "duration" : 710
       }
     } ]
   },
-  "59396103e8665b2bf926d67c3c133bc4" : {
+  "9674d47d95ff99579940619927260461" : {
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
-      "skipped" : 1,
-      "passed" : 0,
+      "skipped" : 0,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "fe0127531a9aab71",
-      "status" : "skipped",
-      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "uid" : "ba0fcb6101331486",
+      "status" : "passed",
       "time" : {
-        "start" : 1541095387839,
-        "stop" : 1541095387885,
-        "duration" : 46
+        "start" : 1541158328642,
+        "stop" : 1541158330154,
+        "duration" : 1512
       }
     } ]
   },
@@ -43,39 +60,170 @@
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
-      "skipped" : 1,
-      "passed" : 0,
+      "skipped" : 0,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "4ccd86b609ca39c6",
-      "status" : "skipped",
-      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "uid" : "2eb495c237db8190",
+      "status" : "passed",
       "time" : {
-        "start" : 1541095388544,
-        "stop" : 1541095388545,
-        "duration" : 1
+        "start" : 1541158330967,
+        "stop" : 1541158332419,
+        "duration" : 1452
       }
     } ]
   },
-  "107ee09a06dd301a72aa0150d1988d12" : {
+  "33dcef21f45f8556837c5faddf093ca" : {
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
-      "skipped" : 1,
-      "passed" : 0,
+      "skipped" : 0,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "729de843f658d306",
-      "status" : "skipped",
-      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "uid" : "10d66edbdb690ae1",
+      "status" : "passed",
       "time" : {
-        "start" : 1541095388495,
-        "stop" : 1541095388510,
-        "duration" : 15
+        "start" : 1541158325561,
+        "stop" : 1541158327127,
+        "duration" : 1566
+      }
+    } ]
+  },
+  "a275e56112c6bc405edfe2eecac5695b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c16db684c0bd3a2b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158327138,
+        "stop" : 1541158328611,
+        "duration" : 1473
+      }
+    } ]
+  },
+  "cf25ed2aa1835b08d842202edf747f4a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e5712a25685a599d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158322130,
+        "stop" : 1541158325397,
+        "duration" : 3267
+      }
+    } ]
+  },
+  "8db17b5da83e89910b90c850ce678e19" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a88b33b0196c7618",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158330213,
+        "stop" : 1541158330924,
+        "duration" : 711
+      }
+    } ]
+  },
+  "59396103e8665b2bf926d67c3c133bc4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "44898c1a8ab54d1c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158322047,
+        "stop" : 1541158325209,
+        "duration" : 3162
+      }
+    } ]
+  },
+  "855baa9a9867a55e3b2a1d6a19ccc90a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8b50f28e9d014bd4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158328639,
+        "stop" : 1541158330152,
+        "duration" : 1513
+      }
+    } ]
+  },
+  "724d6f4e24a85437620dfff22eae29e8" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "faed1c4f224e91d3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158330969,
+        "stop" : 1541158332420,
+        "duration" : 1451
+      }
+    } ]
+  },
+  "473789570799c339b3dd0cd4d050dff0" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "1384ef223e3bcbc6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1541158325562,
+        "stop" : 1541158327129,
+        "duration" : 1567
       }
     } ]
   }
