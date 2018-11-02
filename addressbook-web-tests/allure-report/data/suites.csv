@@ -1,0 +1,5 @@
+"Status","Name","Duration in ms","Description"
+"skipped","Suite1.testGroupCreation","15",""
+"skipped","Suite1.testBadGroupCreation","46",""
+"skipped","Suite1.testGroupDeletion","0",""
+"skipped","Suite1.testGroupModification","1",""

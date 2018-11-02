@@ -1,0 +1,41 @@
+[ {
+  "uid" : "aacf7380519c57ec",
+  "name" : "testGroupDeletion",
+  "time" : {
+    "start" : 1541095388530,
+    "stop" : 1541095388530,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "4ccd86b609ca39c6",
+  "name" : "testGroupModification",
+  "time" : {
+    "start" : 1541095388544,
+    "stop" : 1541095388545,
+    "duration" : 1
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "fe0127531a9aab71",
+  "name" : "testBadGroupCreation",
+  "time" : {
+    "start" : 1541095387839,
+    "stop" : 1541095387885,
+    "duration" : 46
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "729de843f658d306",
+  "name" : "testGroupCreation",
+  "time" : {
+    "start" : 1541095388495,
+    "stop" : 1541095388510,
+    "duration" : 15
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+} ]

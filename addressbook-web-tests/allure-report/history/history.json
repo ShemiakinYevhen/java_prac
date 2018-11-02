@@ -1,0 +1,82 @@
+{
+  "e101216fa8723edd2179ce53a68f50e2" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "aacf7380519c57ec",
+      "status" : "skipped",
+      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "time" : {
+        "start" : 1541095388530,
+        "stop" : 1541095388530,
+        "duration" : 0
+      }
+    } ]
+  },
+  "59396103e8665b2bf926d67c3c133bc4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "fe0127531a9aab71",
+      "status" : "skipped",
+      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "time" : {
+        "start" : 1541095387839,
+        "stop" : 1541095387885,
+        "duration" : 46
+      }
+    } ]
+  },
+  "a596366c8a120eff2aa9f528643a4dd5" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "4ccd86b609ca39c6",
+      "status" : "skipped",
+      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "time" : {
+        "start" : 1541095388544,
+        "stop" : 1541095388545,
+        "duration" : 1
+      }
+    } ]
+  },
+  "107ee09a06dd301a72aa0150d1988d12" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 1,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "729de843f658d306",
+      "status" : "skipped",
+      "statusDetails" : "ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]",
+      "time" : {
+        "start" : 1541095388495,
+        "stop" : 1541095388510,
+        "duration" : 15
+      }
+    } ]
+  }
+}

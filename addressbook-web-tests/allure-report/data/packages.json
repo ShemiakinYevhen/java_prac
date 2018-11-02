@@ -1,0 +1,57 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "Suite1",
+    "children" : [ {
+      "name" : "testBadGroupCreation",
+      "uid" : "fe0127531a9aab71",
+      "parentUid" : "82d5bbc178135984a9be49080f05c781",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1541095387839,
+        "stop" : 1541095387885,
+        "duration" : 46
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testGroupCreation",
+      "uid" : "729de843f658d306",
+      "parentUid" : "82d5bbc178135984a9be49080f05c781",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1541095388495,
+        "stop" : 1541095388510,
+        "duration" : 15
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testGroupDeletion",
+      "uid" : "aacf7380519c57ec",
+      "parentUid" : "82d5bbc178135984a9be49080f05c781",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1541095388530,
+        "stop" : 1541095388530,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testGroupModification",
+      "uid" : "4ccd86b609ca39c6",
+      "parentUid" : "82d5bbc178135984a9be49080f05c781",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1541095388544,
+        "stop" : 1541095388545,
+        "duration" : 1
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "82d5bbc178135984a9be49080f05c781"
+  } ]
+}
